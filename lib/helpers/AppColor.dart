@@ -30,7 +30,7 @@ class AppColor {
 
   static const Color searchText = const Color(0xffffffff);
 
-  static const Color inputBg = Colors.white;
+  static const Color inputBg = Color(0xffF6F8FC);
   static const Color inputBorder =  Color(0xffECF3FF);
 
   static const Color btnThemeText =  Color(0xffffffff);

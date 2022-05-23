@@ -421,7 +421,7 @@ class S {
   /// `Profile settings`
   String get prof_settings {
     return Intl.message(
-      'Profile settings',
+      'Profile',
       name: 'prof_settings',
       desc: '',
       args: [],

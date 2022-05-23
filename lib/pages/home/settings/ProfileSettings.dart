@@ -13,9 +13,9 @@ class ProfileSettings extends StatefulWidget {
 }
 
 class _ProfileSettingsState extends State<ProfileSettings> {
-  late TextEditingController _nameController ;
+  late TextEditingController _nameController;
 
-  late  TextEditingController _dateController ;
+  late TextEditingController _dateController;
 
   String? sex;
 
@@ -25,18 +25,16 @@ class _ProfileSettingsState extends State<ProfileSettings> {
 
   final _formKey = GlobalKey<FormState>();
 
-
   @override
   void initState() {
-
     UserData u = BlocProvider.of<UserDataCubit>(context).state;
-    _nameController =TextEditingController(text: u.name);
-    var d =u.birthdayDate;
+    _nameController = TextEditingController(text: u.name);
+    var d = u.birthdayDate;
     birthday = d;
-    _dateController  =TextEditingController(text: "${d.year}-${d.month < 10 ? 0 : ""}${d.month}-${d.day < 10 ? 0 : ""}${d.day}");
+    _dateController = TextEditingController(
+        text:
+            "${d.year}-${d.month < 10 ? 0 : ""}${d.month}-${d.day < 10 ? 0 : ""}${d.day}");
     sex = u.sex;
-
-
   }
 
   @override
@@ -56,12 +54,13 @@ class _ProfileSettingsState extends State<ProfileSettings> {
                     height: 150,
                     width: 150,
                     decoration: BoxDecoration(
-                        shape: BoxShape.circle, color: AppColor.userProfilePicBg),
+                        shape: BoxShape.circle,
+                        color: AppColor.userProfilePicBg),
                     alignment: Alignment.center,
                     child: Text(
-                      state.name.trim().isEmpty?
-                      state.email[0]:
-                      state.name[0],
+                      state.name.trim().isEmpty
+                          ? state.email[0]
+                          : state.name[0],
                       style: TextStyle(color: Colors.white, fontSize: 50),
                     ),
                   ),
@@ -73,27 +72,26 @@ class _ProfileSettingsState extends State<ProfileSettings> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(
-                                left: 0, top: 6, right: 0, bottom: 6),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 10),
-                              child: Text(
-                                state.email,
-                              ),
-                            )
-                          ),
+                              padding: const EdgeInsets.only(
+                                  left: 0, top: 6, right: 0, bottom: 6),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 10),
+                                child: Text(
+                                  state.email,
+                                ),
+                              )),
                           Padding(
                             padding: const EdgeInsets.only(
                                 left: 0, top: 6, right: 0, bottom: 6),
                             child: TextFormField(
                               controller: _nameController,
                               decoration: InputDecoration(
-                                  labelText:  S.of(context).name,
+                                  labelText: S.of(context).name,
                                   border: const OutlineInputBorder(
                                       borderSide: BorderSide())),
-                              validator: (String? e) => e == null
-                                  ?  S.of(context).enter_name
-                                  : null,
+                              validator: (String? e) =>
+                                  e == null ? S.of(context).enter_name : null,
                             ),
                           ),
                           Padding(
@@ -105,18 +103,18 @@ class _ProfileSettingsState extends State<ProfileSettings> {
                                         borderSide: BorderSide())),
                                 value: sex,
                                 validator: (String? s) =>
-                                    s == null ?  S.of(context).enter_sex : null,
-                                hint:  Text(
+                                    s == null ? S.of(context).enter_sex : null,
+                                hint: Text(
                                   S.of(context).sex,
                                   textAlign: TextAlign.center,
                                 ),
-                                items:  [
+                                items: [
                                   DropdownMenuItem<String>(
-                                    child: Text( S.of(context).male),
+                                    child: Text(S.of(context).male),
                                     value: "male",
                                   ),
                                   DropdownMenuItem<String>(
-                                    child: Text( S.of(context).female),
+                                    child: Text(S.of(context).female),
                                     value: "female",
                                   )
                                 ],
@@ -149,11 +147,11 @@ class _ProfileSettingsState extends State<ProfileSettings> {
                                   child: TextFormField(
                                     controller: _dateController,
                                     decoration: InputDecoration(
-                                        labelText:  S.of(context).birthday_date,
+                                        labelText: S.of(context).birthday_date,
                                         border: const OutlineInputBorder(
                                             borderSide: BorderSide())),
                                     validator: (String? e) => e == null
-                                        ?  S.of(context).enter_birthday_date
+                                        ? S.of(context).enter_birthday_date
                                         : null,
                                   ),
                                 ),
@@ -168,13 +166,21 @@ class _ProfileSettingsState extends State<ProfileSettings> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 40, right:  40, top: 40),
+                    padding:
+                        const EdgeInsets.only(left: 40, right: 40, top: 40),
                     child: Row(
                       children: [
                         Expanded(
-                            child:
-                                TextButton(onPressed: () {Navigator.of(context).pop();}, child: Text( S.of(context).cancel))),
-                        Expanded(child: ElevatedButton(onPressed: onSaveProfile, child: Text( S.of(context).save),))
+                            child: TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text(S.of(context).cancel))),
+                        Expanded(
+                            child: ElevatedButton(
+                          onPressed: onSaveProfile,
+                          child: Text(S.of(context).save),
+                        ))
                       ],
                     ),
                   )
@@ -187,29 +193,28 @@ class _ProfileSettingsState extends State<ProfileSettings> {
     );
   }
 
+  onSaveProfile() async {
+    if (!_formKey.currentState!.validate()) return;
 
-  onSaveProfile()async {
-
-    if(! _formKey.currentState!.validate()) return;
-
-    if(errorMessage!=null){
+    if (errorMessage != null) {
       setState(() {
         errorMessage = null;
       });
     }
 
-    String? error = await BlocProvider.of<UserDataCubit>(context, listen: false).updateProfile(name: _nameController.text, sex: sex!, birthdayDate: birthday!,);
+    String? error = await BlocProvider.of<UserDataCubit>(context, listen: false)
+        .updateProfile(
+      name: _nameController.text,
+      sex: sex!,
+      birthdayDate: birthday!,
+    );
 
-    if(error!=null) {
+    if (error != null) {
       setState(() {
-        errorMessage=error;
+        errorMessage = error;
       });
-    }
-
-    else{
+    } else {
       Navigator.of(context).pop();
     }
-
-
   }
 }

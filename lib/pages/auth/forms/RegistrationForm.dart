@@ -144,7 +144,7 @@ bool isMale = true;
                   onChanged: (value){
                     setState(() {
                       isMale=!isMale;
-                      setMaleValue(isMale);
+
                     });
 
                   },
@@ -157,7 +157,7 @@ bool isMale = true;
                   onChanged: (value){
                     setState(() {
                       isMale=!isMale;
-                      setMaleValue(isMale);
+
                     });
 
                   },
@@ -184,20 +184,6 @@ bool isMale = true;
     );
   }
 
-  setMaleValue(isMale){
-    if(isMale){
-      setState(() {
-
-        sex = 'male';
-      });
-    }else{
-      setState(() {
-
-        sex='female';
-      });
-    }
-
-  }
   String? validateEmail(String? value) {
     if(value==null) {
       return S.of(context).enter_valid_email;
@@ -223,6 +209,7 @@ bool isMale = true;
         errorMessage = null;
       });
     }
+    sex = isMale?"male":"female";
 
     String? error = await BlocProvider.of<AuthCubit>(context, listen: false).signIn(email: _emailController.text.toLowerCase(), password: _passwordController.text, sex: sex!, birthDate: birthday!);
     if(error!=null) {

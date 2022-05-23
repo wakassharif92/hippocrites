@@ -51,14 +51,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "new_password": MessageLookupByLibrary.simpleMessage("New password:"),
         "pass_settings":
-            MessageLookupByLibrary.simpleMessage("Password settings"),
+            MessageLookupByLibrary.simpleMessage("Password"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "password_restore":
             MessageLookupByLibrary.simpleMessage("You can reset your password"),
         "prevention": MessageLookupByLibrary.simpleMessage("Prevention"),
         "probability": MessageLookupByLibrary.simpleMessage("probability"),
         "prof_settings":
-            MessageLookupByLibrary.simpleMessage("Profile settings"),
+            MessageLookupByLibrary.simpleMessage("Profile"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "read_more": MessageLookupByLibrary.simpleMessage("Read more"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),

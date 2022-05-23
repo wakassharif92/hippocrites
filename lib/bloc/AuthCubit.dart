@@ -16,8 +16,7 @@ class AuthCubit extends Cubit<bool> {
   Future<String?> logIn(
 
       {required String email, required String password}) async {
-    //TODO remove this
-    emit(true);
+
     var res = await apiFactory
         .getHandler()
         .logIn(email: email, password: password);
