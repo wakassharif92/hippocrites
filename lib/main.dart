@@ -79,6 +79,7 @@ class MyApp extends StatelessWidget {
                       ), // If this is not set, then ThemeData.light().textTheme is used.
                 ),
                 inputDecorationTheme: InputDecorationTheme(
+
                     filled: true,
                     fillColor: AppColor.inputBg,
                     errorStyle: TextStyle(
@@ -86,16 +87,29 @@ class MyApp extends StatelessWidget {
                     ),
                     contentPadding:
                         EdgeInsets.only(left: 28.w, top: 26.h, bottom: 23.h),
+
                     labelStyle: TextStyle(
                         fontSize: 14.sp,
                         color: Colors.black,
                         fontWeight: FontWeight.w500),
+                        hintStyle: TextStyle(
+                        fontSize: 14.sp,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500),
+
                     enabledBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
                             color: AppColor.inputBorder, width: 1.0),
                         borderRadius: BorderRadius.circular(
                           10.sp,
                         )),
+                     disabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                            color: AppColor.inputBorder, width: 1.0),
+                        borderRadius: BorderRadius.circular(
+                          10.sp,
+                        )),
+
                     focusedBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
                             color: AppColor.primary, width: 1.0),

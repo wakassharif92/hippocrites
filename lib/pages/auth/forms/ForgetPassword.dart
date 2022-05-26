@@ -82,7 +82,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                 TextFormField(
                   decoration: InputDecoration(
                     fillColor: AppColor.forgetPasswordInput,
-                    labelText: S.of(context).email,
+                    hintText: S.of(context).email,
                   ),
                   controller: _emailController,
                   validator: validateEmail,

@@ -28,7 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "check_email":
             MessageLookupByLibrary.simpleMessage("Please, check your email!!!"),
         "current_password":
-            MessageLookupByLibrary.simpleMessage("Current password:"),
+            MessageLookupByLibrary.simpleMessage("Current password"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "enter_birthday_date":
@@ -49,7 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "months": MessageLookupByLibrary.simpleMessage(
             "January February March April May June July August September October November December"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
-        "new_password": MessageLookupByLibrary.simpleMessage("New password:"),
+        "new_password": MessageLookupByLibrary.simpleMessage("New password"),
         "pass_settings":
             MessageLookupByLibrary.simpleMessage("Password"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),

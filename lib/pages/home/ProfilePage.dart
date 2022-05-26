@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hmd_chatbot/bloc/UserDataCubit.dart';
 import 'package:hmd_chatbot/generated/l10n.dart';
 import 'package:hmd_chatbot/pages/home/settings/PasswordSettings.dart';
@@ -48,7 +49,7 @@ class ProfilePage extends StatelessWidget {
                         decoration: BoxDecoration(
                           border: Border(
                             bottom: BorderSide(
-                                width: 2, color: Colors.grey),
+                                width: 2.h, color: AppColor.themeGrey),
                           ),
 
 
@@ -57,26 +58,24 @@ class ProfilePage extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-
-                  child: TabBar(
-                    labelColor: AppColor.primary,
-                    indicatorColor: AppColor.primary,
-                    unselectedLabelColor: Colors.black,
-                    labelStyle: Theme.of(context).textTheme.headline3,
-                    // unselectedLabelStyle: AppColor.primary,
-                    tabs: [
-                      Tab(
-                        text: S.of(context).prof_settings,
-                      ),
-                      Tab(text: S.of(context).pass_settings),
-                    ],
-                  ),
+                TabBar(
+                  labelColor: AppColor.primary,
+                  indicatorColor: AppColor.primary,
+                  unselectedLabelColor: Colors.black,
+                  labelStyle: Theme.of(context).textTheme.headline3,
+                  // unselectedLabelStyle: AppColor.primary,
+                  tabs: [
+                    Tab(
+                      text: S.of(context).prof_settings,
+                    ),
+                    Tab(text: S.of(context).pass_settings),
+                  ],
                 ),
 
               ],
             ),
           ),
+
           Expanded(
             child: TabBarView(
               children: [

@@ -59,7 +59,7 @@ class _LoginFormState extends State<LoginForm> {
             ),
             TextFormField(
               decoration: InputDecoration(
-                labelText: S.of(context).email,
+                hintText: S.of(context).email,
               ),
               controller: _emailController,
               validator: validateEmail,
@@ -67,17 +67,27 @@ class _LoginFormState extends State<LoginForm> {
             SizedBox(
               height: formError == true ? 12.h : 32.h,
             ),
-            TextFormField(
-              decoration: InputDecoration(
-                  labelText: S.of(context).password,
-                  suffix: InkWell(
+            Stack(
+              children: [
+                TextFormField(
+                  decoration: InputDecoration(
+                      hintText: S.of(context).password,
+                      ),
+
+                  controller: _passwordController,
+                  obscureText: hidePassword,
+                ),
+                Positioned(
+                right: 28.w,
+                  top: 24.h,
+                  child: InkWell(
                     onTap: (){
                       setState(() {
                         hidePassword=!hidePassword;
                       });
                     },
                     child: !hidePassword?Container(
-                      padding: EdgeInsets.only(right: 28.w),
+
                       child: SvgPicture.asset(
                         "assets/images/eye.svg",
                         height: 20.h,
@@ -85,17 +95,16 @@ class _LoginFormState extends State<LoginForm> {
                       ),
                     ):
                     Container(
-                      padding: EdgeInsets.only(right: 28.w),
+
                       child: SvgPicture.asset(
                         "assets/images/closeEye.svg",
                         height: 20.h,
                         // semanticsLabel: 'Acme Logo'
                       ),
                     ),
-                  )),
-
-              controller: _passwordController,
-              obscureText: hidePassword,
+                  ),
+                )
+              ],
             ),
             if (errorMessage != null)
               Text(errorMessage!, style: TextStyle(color: AppColor.error)),

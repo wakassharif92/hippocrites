@@ -7,6 +7,7 @@ import 'package:hmd_chatbot/services/storage/Storage.dart';
 import 'package:hmd_chatbot/services/storage/StorageFactory.dart';
 
 class ChatState {
+
   ChatState(
       {required this.messages,
       this.options,

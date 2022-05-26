@@ -321,7 +321,7 @@ class S {
   /// `Current password:`
   String get current_password {
     return Intl.message(
-      'Current password:',
+      'Current password',
       name: 'current_password',
       desc: '',
       args: [],
@@ -331,7 +331,7 @@ class S {
   /// `New password:`
   String get new_password {
     return Intl.message(
-      'New password:',
+      'New password',
       name: 'new_password',
       desc: '',
       args: [],

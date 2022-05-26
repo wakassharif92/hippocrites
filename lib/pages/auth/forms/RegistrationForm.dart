@@ -56,7 +56,7 @@ bool isMale = true;
               height: 40.h,
             ),
             TextFormField(
-              decoration: InputDecoration(labelText: S.of(context).email),
+              decoration: InputDecoration(hintText: S.of(context).email),
               keyboardType: TextInputType.emailAddress,
               controller: _emailController,
               validator: validateEmail,
@@ -64,33 +64,43 @@ bool isMale = true;
             SizedBox(
               height: 32.h,
             ),
-            TextFormField(
-              decoration:  InputDecoration(labelText: S.of(context).password,suffix: InkWell(
-                onTap: (){
-                  setState(() {
-                    hidePassword=!hidePassword;
-                  });
-                },
-                child: !hidePassword?Container(
-                  padding: EdgeInsets.only(right: 28.w),
-                  child: SvgPicture.asset(
-                    "assets/images/eye.svg",
-                    height: 20.h,
-                    // semanticsLabel: 'Acme Logo'
-                  ),
-                ):
-                Container(
-                  padding: EdgeInsets.only(right: 28.w),
-                  child: SvgPicture.asset(
-                    "assets/images/closeEye.svg",
-                    height: 20.h,
-                    // semanticsLabel: 'Acme Logo'
-                  ),
-                ),
-              )),
-              controller: _passwordController,
-              obscureText: hidePassword,
+            Stack(
+              children: [
+                TextFormField(
+                  decoration:  InputDecoration(hintText: S.of(context).password,
+                      ),
+                  controller: _passwordController,
+                  obscureText: hidePassword,
 
+                ),
+                Positioned(
+                  right: 28.w,
+                  top: 24.h,
+                  child: InkWell(
+                    onTap: (){
+                      setState(() {
+                        hidePassword=!hidePassword;
+                      });
+                    },
+                    child: !hidePassword?Container(
+
+                      child: SvgPicture.asset(
+                        "assets/images/eye.svg",
+                        height: 20.h,
+                        // semanticsLabel: 'Acme Logo'
+                      ),
+                    ):
+                    Container(
+
+                      child: SvgPicture.asset(
+                        "assets/images/closeEye.svg",
+                        height: 20.h,
+                        // semanticsLabel: 'Acme Logo'
+                      ),
+                    ),
+                  ),
+                )
+              ],
             ),
             SizedBox(
               height: 32.h,
@@ -112,7 +122,7 @@ bool isMale = true;
                 child: IgnorePointer(
                   child: TextFormField(
                     controller: _dateController,
-                    decoration: InputDecoration(labelText: S.of(context).birthday_date),
+                    decoration: InputDecoration(hintText: S.of(context).birthday_date),
                     validator: (String? e) => e == null ? S.of(context).enter_birthday_date: e == "" ? S.of(context).enter_birthday_date : null,
                   ),
                 ),

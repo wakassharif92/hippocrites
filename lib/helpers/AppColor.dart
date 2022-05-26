@@ -8,6 +8,8 @@ class AppColor {
   static const Color indicator = const Color(0xFF1976D2);
   static const Color accent = const Color(0xFF1976D2);
   static const Color error = const Color(0xffFF6161);
+  static const Color btnSecondary = const Color(0xffFF6161);
+  static const Color btnGrey = const Color(0xffF6F8FC);
   static const Color chatBg = const Color(0xFFE7E7E7);
 
   static const Color userProfilePicBg = const Color(0xff1976d2);
@@ -35,11 +37,13 @@ class AppColor {
 
   static const Color btnThemeText =  Color(0xffffffff);
   static const Color btnSimpleText = primary;
-  static const Color btnSimpleBgColor = Color(0xffECF3FF);
+  static const Color  btnSimpleBgColor = Color(0xffECF3FF);
   static const Color btnRoundBorder = Color(0xffE6E8EC);
 
   static const Color btnBorderBgColor = Color(0xffffffff);
   static const Color forgetPasswordInput = Color(0xffF6F8FC);
+  static const Color themeGrey = Color(0xffF6F8FC);
+
 
 
 
