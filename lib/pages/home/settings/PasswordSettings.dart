@@ -182,11 +182,11 @@ bool hideCurrentPassword  = true ;
                     child:  getPrimaryButton(context,onSavePass,"Save")
                     ,),
                   SizedBox(height: 16.h,),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 24.w),
-                    width: double.infinity,
-                    child:  getDimButton(context,(){},"Cancel")
-                    ,),
+                  // Container(
+                  //   padding: EdgeInsets.symmetric(horizontal: 24.w),
+                  //   width: double.infinity,
+                  //   child:  getDimButton(context,(){},"Cancel")
+                  //   ,),
                   SizedBox(height: 70.h,),
                   // Padding(
                   //   padding: EdgeInsets.only(left: 40, right: 40, top: 40),

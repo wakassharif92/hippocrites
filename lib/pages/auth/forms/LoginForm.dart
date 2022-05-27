@@ -109,26 +109,23 @@ class _LoginFormState extends State<LoginForm> {
             if (errorMessage != null)
               Text(errorMessage!, style: TextStyle(color: AppColor.error)),
             SizedBox(
-              height: 32.h,
+              height: 32-5.h,
             ),
-            TextButton(
-              onPressed: _onForgotPasswordButtonPressed,
-              style: ButtonStyle(
-                  alignment: Alignment.centerRight,
-                  textStyle: MaterialStateProperty.all(GoogleFonts.montserrat(
-                      color: AppColor.link,
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w400))
-                  // TextStyle(color: AppColor.link,fontSize: 14.sp,fontWeight: FontWeight.w300),
-                  ),
+            InkWell(onTap:_onForgotPasswordButtonPressed,
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 5),
               child: Text(
-                S.of(context).forgot_password,
+                "Forgotten password?",
                 textAlign: TextAlign.right,
+                style: TextStyle(  color: AppColor.primary,
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w400),
               ),
-            ),
+            ),),
+
             Padding(
               padding:
-                  EdgeInsets.only(left: 0, top: 85.h, right: 0, bottom: 24.h),
+                  EdgeInsets.only(left: 0, top: 196.h, right: 0, bottom: 24.h),
               child: Container(
                 decoration: getButtonDecoration(),
                 child: ElevatedButton(
@@ -137,7 +134,7 @@ class _LoginFormState extends State<LoginForm> {
                 ),
               ),
             ),
-            SizedBox(height: 10.h),
+
             Container(
               decoration: getButtonDecoration(),
               child: ElevatedButton(

@@ -1,4 +1,4 @@
-#Fri May 27 00:15:16 PKT 2022
+#Fri May 27 23:50:57 PKT 2022
 base.0=/Users/macbook/Desktop/project/waqas/hmd_care/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

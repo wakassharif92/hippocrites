@@ -34,7 +34,8 @@ class MyApp extends StatelessWidget {
     // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent,));
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
     return ScreenUtilInit(
-        designSize: const Size(375, 667),
+        // designSize: const Size(375, 667),
+        designSize: const Size(375, 812),
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (BuildContext context, Widget? child) => MaterialApp(
@@ -65,6 +66,10 @@ class MyApp extends StatelessWidget {
                         fontSize: 21.sp,
                         color: Colors.white,
                         fontWeight: FontWeight.w500),
+                    headline5: TextStyle(
+                        fontSize: 8.sp,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600),
 
                         subtitle1: TextStyle(
                             fontSize: 13.sp,

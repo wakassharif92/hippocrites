@@ -188,6 +188,20 @@ bool isMale = true;
                 ),
               ),
             ),
+            SizedBox(height: 24.h,),
+            Container(
+              decoration: getButtonDecoration(),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(primary: AppColor.btnSimpleBgColor),
+                onPressed: (){
+                  Navigator.of(context).pop();
+                },
+                child: Text(
+                  S.of(context).login,
+                  style: const TextStyle(color: AppColor.btnSimpleText),
+                ),
+              ),
+            )
           ],
         ),
       ),

@@ -274,12 +274,12 @@ class _ProfileSettingsState extends State<ProfileSettings> {
                     ,)
                  ,
                   SizedBox(height: 16.h,),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 24.w),
-                    width: double.infinity,
-                    child:  getSecondaryButton(context,(){},"Cancel")
-                    ,)
-                 ,
+                  // Container(
+                  //   padding: EdgeInsets.symmetric(horizontal: 24.w),
+                  //   width: double.infinity,
+                  //   child:  getSecondaryButton(context,(){},"Cancel")
+                  //   ,)
+                 // ,
                   SizedBox(height: 16.h,),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 24.w),

@@ -16,6 +16,7 @@ class Index extends StatelessWidget {
 
     return BlocBuilder<AuthCubit, bool>(builder: (ctx, loggedIn) {
       if(loggedIn) {
+
         return BlocProvider(
             create: (BuildContext context) => ChatCubit(
                 storageFactory: StorageFactory(), apiFactory: APIFactory()),child: const HomePage());
