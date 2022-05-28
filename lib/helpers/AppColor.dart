@@ -17,9 +17,9 @@ class AppColor {
   static const Color optionBg = const Color(0xffe7e7e7);
 
 
-  static const Color msgBotBackground = const Color(0xffffffff);
-  static const Color msgUserBackground = const Color(0xFF7FD7E1);
-  static const Color msgBotText = const Color(0xff2c3e50);
+  static const Color msgBotBackground = const Color(0xffF6F8FC);
+  static const Color msgUserBackground = primary;
+  static const Color msgBotText = const Color(0xff000000);
   static const Color msgUserText = const Color(0xffffffff);
 
   static const Color placeholder = const Color(0xffaeaeae);
@@ -43,6 +43,11 @@ class AppColor {
   static const Color btnBorderBgColor = Color(0xffffffff);
   static const Color forgetPasswordInput = Color(0xffF6F8FC);
   static const Color themeGrey = Color(0xffF6F8FC);
+  static const Color msgReceived = Color(0xffffffff);
+  static const Color msgSent = Color(0xff3A7F92);
+  static const Color  lightGrey = Color(0xffECF3FF);
+  static const Color  darkPurple = Color(0xff132537);
+
 
 
 

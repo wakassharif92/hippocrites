@@ -142,9 +142,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   )),
             ),
-            Expanded(
-              child: _buildScreens(activeIndex),
-            ),
+            Expanded(child: _buildScreens(activeIndex),),
             Container(
               decoration: BoxDecoration(
                 color: Colors.white,

@@ -1,5 +1,5 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:hmd_chatbot/generated/l10n.dart';
 import 'package:hmd_chatbot/helpers/AppColor.dart';
@@ -19,16 +19,45 @@ class ChatMessage extends StatelessWidget {
     if (message.type == Message.SEPARATOR_TYPE) {
       return Container(
         width: double.maxFinite,
-        height: 50,
+        // height: 50,
         margin: EdgeInsets.symmetric(vertical: 30),
         alignment: Alignment.center,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(correctDateTime(message.dateTime, context)),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30),
+            Padding(
+              padding: EdgeInsets.only(left: 24.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    correctDateTime(message.dateTime, context)
+                        .substring(0, 3)
+                        .toUpperCase(),
+                    style: TextStyle(
+                        color: AppColor.darkPurple,
+                        fontSize: 30.sp,
+                        fontWeight: FontWeight.w600),
+                  ), Text(
+                    correctDateTime(message.dateTime, context)
+                        .substring(4, correctDateTime(message.dateTime, context).length)
+                        .toUpperCase(),
+                    style: TextStyle(
+                        color: AppColor.darkPurple,
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w400),
+                  ),
+                  // Text(correctDateTime(message.dateTime, context)),
+                ],
+              ),
+              // child: Text(correctDateTime(message.dateTime, context)),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                  bottom: 48.h, top: 24.h, left: 24.w, right: 24.w),
               child: Divider(
-                thickness: 2,
+                thickness: 1.5.sp,
+                color: AppColor.lightGrey,
               ),
             )
           ],
@@ -58,7 +87,8 @@ class ChatMessage extends StatelessWidget {
                                   child: SelectableText(
                                     message.title!.toUpperCase(),
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18.sp,
+                                        fontWeight: FontWeight.w300,
                                         color: message.fromUser
                                             ? AppColor.msgUserText
                                             : AppColor.msgBotText),
@@ -209,13 +239,23 @@ class ChatMessage extends StatelessWidget {
                               style: const TextStyle(color: AppColor.link),
                             ))
                     ]),
-                padding: const EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
+                padding: EdgeInsets.fromLTRB(16.sp, 16.sp, 16.sp, 12.sp),
                 constraints: boxConstraints,
                 decoration: BoxDecoration(
                     color: message.fromUser
                         ? AppColor.msgUserBackground
                         : AppColor.msgBotBackground,
-                    borderRadius: BorderRadius.circular(8.0)),
+                    borderRadius: !message.fromUser
+                        ? BorderRadius.only(
+                            topRight: Radius.circular(24.sp),
+                            topLeft: Radius.circular(24.sp),
+                            bottomRight: Radius.circular(24.sp),
+                          )
+                        : BorderRadius.only(
+                            topRight: Radius.circular(24.sp),
+                            topLeft: Radius.circular(24.sp),
+                            bottomLeft: Radius.circular(24.sp),
+                          )),
                 margin: EdgeInsets.only(
                     left: message.fromUser ? 0.0 : 10.0,
                     bottom: 10.0,
