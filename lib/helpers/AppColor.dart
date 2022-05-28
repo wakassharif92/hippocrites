@@ -8,6 +8,7 @@ class AppColor {
   static const Color indicator = const Color(0xFF1976D2);
   static const Color accent = const Color(0xFF1976D2);
   static const Color error = const Color(0xffFF6161);
+  static const Color redText = const Color(0xffFF6161);
   static const Color btnSecondary = const Color(0xffFF6161);
   static const Color btnGrey = const Color(0xffF6F8FC);
   static const Color chatBg = const Color(0xFFE7E7E7);

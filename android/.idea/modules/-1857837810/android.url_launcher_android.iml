@@ -33,7 +33,13 @@
     <content url="file://$MODULE_DIR$/../../../../../../../fluttersdk/flutter2.10.1/.pub-cache/hosted/pub.dartlang.org/url_launcher_android-6.0.14">
       <sourceFolder url="file://$MODULE_DIR$/../../../../../../../fluttersdk/flutter2.10.1/.pub-cache/hosted/pub.dartlang.org/url_launcher_android-6.0.14/android/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../../../../../fluttersdk/flutter2.10.1/.pub-cache/hosted/pub.dartlang.org/url_launcher_android-6.0.14/android/src/test/java" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../../../../../fluttersdk/flutter2.10.1/.pub-cache/hosted/pub.dartlang.org/url_launcher_android-6.0.14/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../../../../../fluttersdk/flutter2.10.1/.pub-cache/hosted/pub.dartlang.org/url_launcher_android-6.0.14/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/../../../../../../../fluttersdk/flutter2.10.1/.pub-cache/hosted/pub.dartlang.org/url_launcher_android-6.0.14/android/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../../../../../fluttersdk/flutter2.10.1/.pub-cache/hosted/pub.dartlang.org/url_launcher_android-6.0.14/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../../../../../fluttersdk/flutter2.10.1/.pub-cache/hosted/pub.dartlang.org/url_launcher_android-6.0.14/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../../../../../fluttersdk/flutter2.10.1/.pub-cache/hosted/pub.dartlang.org/url_launcher_android-6.0.14/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../../../../../fluttersdk/flutter2.10.1/.pub-cache/hosted/pub.dartlang.org/url_launcher_android-6.0.14/example/build" />
     </content>
     <content url="file://$MODULE_DIR$/../../../../build/url_launcher_android/generated/aidl_source_output_dir/debug/out" />
     <content url="file://$MODULE_DIR$/../../../../build/url_launcher_android/generated/aidl_source_output_dir/debugAndroidTest/out" />
