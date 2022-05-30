@@ -20,6 +20,7 @@ ElevatedButton getPrimaryButton(BuildContext context, onClick, String text) {
   return ElevatedButton(
     style: ElevatedButton.styleFrom(
         primary: AppColor.primary, shadowColor: Colors.white, elevation: 0),
+
     onPressed: onClick,
     child: Text(
       text,

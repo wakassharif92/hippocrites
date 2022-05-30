@@ -7,6 +7,7 @@ import 'package:hmd_chatbot/helpers/UiHelpers.dart';
 
 class IntroOne extends StatefulWidget {
   VoidCallback callback;
+
   IntroOne(this.callback);
 
   @override
@@ -18,9 +19,11 @@ class _IntroOneState extends State<IntroOne> {
   int currentSliderIndex = 0;
   final CarouselController _sliderController = CarouselController();
 
-  bool showMore1= false;
-  bool showMore2= true ;
+  bool showMore1 = false;
+  bool showMore2 = true;
+
   ScrollController _scrollController = new ScrollController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,10 +102,10 @@ class _IntroOneState extends State<IntroOne> {
                                         child: Align(
                                           child: CircleAvatar(
                                               radius: 3.h,
-                                              backgroundColor:
-                                                  entry.key == currentSliderIndex
-                                                      ? AppColor.primary
-                                                      : Colors.white),
+                                              backgroundColor: entry.key ==
+                                                      currentSliderIndex
+                                                  ? AppColor.primary
+                                                  : Colors.white),
                                         ),
                                       ),
                                     ],
@@ -123,7 +126,6 @@ class _IntroOneState extends State<IntroOne> {
                         thirdIntroScreenTab2(),
                       ],
                     )
-
                 ],
               ),
             ),
@@ -208,9 +210,9 @@ class _IntroOneState extends State<IntroOne> {
                             }
                           }
                           await Future.delayed(Duration(milliseconds: 300));
-                          final position = _scrollController.position.maxScrollExtent;
-                          print("max post ----");
-                          print(position);
+                          final position =
+                              _scrollController.position.maxScrollExtent;
+
                           // _scrollController.jumpTo(position);
                           _scrollController.animateTo(
                             position,
@@ -232,6 +234,17 @@ class _IntroOneState extends State<IntroOne> {
                 ),
               ],
             ),
+            Container(
+              height: 153,
+              width: MediaQuery.of(context).size.width * 1,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                      image: AssetImage(
+
+                "assets/images/shade1.png",
+              ))),
+            )
           ],
         ),
       ),
@@ -269,13 +282,13 @@ class _IntroOneState extends State<IntroOne> {
       ),
     );
   }
+
   Widget thirdIntroScreenTab1() {
-
     return Stack(
       children: [
         Container(
           width: 320.w,
-          margin: EdgeInsets.only(top: 24.h, left: 24.w,right: 24.w),
+          margin: EdgeInsets.only(top: 24.h, left: 24.w, right: 24.w),
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(24.sp)),
           padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),
@@ -286,12 +299,17 @@ class _IntroOneState extends State<IntroOne> {
                 children: [
                   Row(
                     children: [
-                      CircleAvatar(radius:4.h ,backgroundColor:AppColor.redText,),
-                      SizedBox(width: 10.w,),
+                      CircleAvatar(
+                        radius: 4.h,
+                        backgroundColor: AppColor.redText,
+                      ),
+                      SizedBox(
+                        width: 10.w,
+                      ),
                       Text(
                         "low probability",
                         style: TextStyle(
-                            color:AppColor.redText,
+                            color: AppColor.redText,
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w400),
                       ),
@@ -310,65 +328,65 @@ class _IntroOneState extends State<IntroOne> {
                   SizedBox(
                     height: 8.h,
                   ),
-                  if(showMore1)Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Treatments",
-                        style: TextStyle(
-                            color: AppColor.msgSent,
-                            fontSize: 13.sp,
-                            fontWeight: FontWeight.w600),
-                      ),
-                      SizedBox(
-                        height: 8.h,
-                      ),
-                      Text(
-                        "There are several types of medicines used to treat a peptic ulcer. Your doctor will decide the best treatment based on the cause of your peptic ulcer.",
-                        style: TextStyle(
-                            color: AppColor.darkPurple,
-                            fontSize: 13.sp,
-                            fontWeight: FontWeight.w300),
-                      ),
-                    ],
-                  ),
+                  if (showMore1)
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Treatments",
+                          style: TextStyle(
+                              color: AppColor.msgSent,
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        SizedBox(
+                          height: 8.h,
+                        ),
+                        Text(
+                          "There are several types of medicines used to treat a peptic ulcer. Your doctor will decide the best treatment based on the cause of your peptic ulcer.",
+                          style: TextStyle(
+                              color: AppColor.darkPurple,
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.w300),
+                        ),
+                      ],
+                    ),
                 ],
               ),
               Positioned(
                 right: 0,
                 child: InkWell(
-                  onTap: (){
+                  onTap: () {
                     setState(() {
-
-                      showMore1=!showMore1 ;
+                      showMore1 = !showMore1;
                     });
                   },
                   child: Container(
                     height: 32.h,
                     width: 32.h,
                     child: SvgPicture.asset(
-                        !showMore1?"assets/images/add.svg":"assets/images/minus.svg",
+                        !showMore1
+                            ? "assets/images/add.svg"
+                            : "assets/images/minus.svg",
                         height: 24.h
-                      // semanticsLabel: 'Acme Logo'
-                    ),
+                        // semanticsLabel: 'Acme Logo'
+                        ),
                   ),
                 ),
               ),
             ],
           ),
         ),
-
-
       ],
     );
   }
+
   Widget thirdIntroScreenTab2() {
-
     return Stack(
       children: [
         Container(
           width: 320.w,
-          margin: EdgeInsets.only(top: 24.h, left: 24.w,right: 24.w),
+          margin: EdgeInsets.only(top: 24.h, left: 24.w, right: 24.w),
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(24.sp)),
           padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),
@@ -379,12 +397,17 @@ class _IntroOneState extends State<IntroOne> {
                 children: [
                   Row(
                     children: [
-                      CircleAvatar(radius:4.h ,backgroundColor:AppColor.redText,),
-                      SizedBox(width: 10.w,),
+                      CircleAvatar(
+                        radius: 4.h,
+                        backgroundColor: AppColor.redText,
+                      ),
+                      SizedBox(
+                        width: 10.w,
+                      ),
                       Text(
                         "low probability",
                         style: TextStyle(
-                            color:AppColor.redText,
+                            color: AppColor.redText,
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w400),
                       ),
@@ -403,58 +426,56 @@ class _IntroOneState extends State<IntroOne> {
                   SizedBox(
                     height: 8.h,
                   ),
-                  if(showMore2)Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Treatments",
-                        style: TextStyle(
-                            color: AppColor.msgSent,
-                            fontSize: 13.sp,
-                            fontWeight: FontWeight.w600),
-                      ),
-                      SizedBox(
-                        height: 8.h,
-                      ),
-                      Text(
-                        "There are several types of medicines used to treat a peptic ulcer. Your doctor will decide the best treatment based on the cause of your peptic ulcer.",
-                        style: TextStyle(
-                            color: AppColor.darkPurple,
-                            fontSize: 13.sp,
-                            fontWeight: FontWeight.w300),
-                      ),
-                    ],
-                  ),
+                  if (showMore2)
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Treatments",
+                          style: TextStyle(
+                              color: AppColor.msgSent,
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        SizedBox(
+                          height: 8.h,
+                        ),
+                        Text(
+                          "There are several types of medicines used to treat a peptic ulcer. Your doctor will decide the best treatment based on the cause of your peptic ulcer.",
+                          style: TextStyle(
+                              color: AppColor.darkPurple,
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.w300),
+                        ),
+                      ],
+                    ),
                 ],
               ),
               Positioned(
                 right: 0,
                 child: InkWell(
-                  onTap: (){
+                  onTap: () {
                     setState(() {
-
-                      showMore2=!showMore2 ;
+                      showMore2 = !showMore2;
                     });
                   },
                   child: Container(
                     height: 32.h,
                     width: 32.h,
                     child: SvgPicture.asset(
-                        !showMore2?"assets/images/add.svg":"assets/images/minus.svg",
+                        !showMore2
+                            ? "assets/images/add.svg"
+                            : "assets/images/minus.svg",
                         height: 24.h
-                      // semanticsLabel: 'Acme Logo'
-                    ),
+                        // semanticsLabel: 'Acme Logo'
+                        ),
                   ),
                 ),
               ),
             ],
           ),
         ),
-
-
       ],
     );
   }
-
-
 }

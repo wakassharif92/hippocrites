@@ -12,10 +12,11 @@ class AppColor {
   static const Color btnSecondary = const Color(0xffFF6161);
   static const Color btnGrey = const Color(0xffF6F8FC);
   static const Color chatBg = const Color(0xFFE7E7E7);
+  static const Color selectOption = Color(0xff3A7F92);
 
   static const Color userProfilePicBg = const Color(0xff1976d2);
   static const Color dialogBg = const Color(0xffffffff);
-  static const Color optionBg = const Color(0xffe7e7e7);
+  static const Color optionBg = const Color(0xffECFBFF);
 
 
   static const Color msgBotBackground = const Color(0xffF6F8FC);

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:hmd_chatbot/bloc/ChatCubit.dart';
 import 'package:hmd_chatbot/components/ChatMessage.dart';
 import 'package:hmd_chatbot/components/OptionsDialog.dart';
@@ -8,9 +9,13 @@ import 'package:hmd_chatbot/generated/l10n.dart';
 import 'package:hmd_chatbot/helpers/AppColor.dart';
 import 'package:hmd_chatbot/models/Message.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Chat extends StatefulWidget {
-  const Chat({Key? key, required this.itemScrollController}) : super(key: key,);
+  const Chat({Key? key, required this.itemScrollController})
+      : super(
+          key: key,
+        );
   final ItemScrollController itemScrollController;
 
   @override
@@ -35,21 +40,21 @@ class _ChatState extends State<Chat> {
         children: [
           Expanded(
               child: GestureDetector(
-                onTap: (){
-                  FocusManager.instance.primaryFocus?.unfocus();
-                },
-                child: Container(
-                  color: Colors.transparent,
-                  child: ShaderMask(
-            shaderCallback: (rect) {
+            onTap: () {
+              FocusManager.instance.primaryFocus?.unfocus();
+            },
+            child: Container(
+              color: Colors.transparent,
+              child: ShaderMask(
+                shaderCallback: (rect) {
                   return const LinearGradient(
                     begin: Alignment(0.0, 0.90),
                     end: Alignment(0.0, 0.98),
                     colors: [Colors.black, Colors.transparent],
                   ).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height));
-            },
-            blendMode: BlendMode.dstIn,
-            child: ScrollablePositionedList.builder(
+                },
+                blendMode: BlendMode.dstIn,
+                child: ScrollablePositionedList.builder(
                   itemScrollController: widget.itemScrollController,
                   padding: const EdgeInsets.symmetric(vertical: 30),
                   reverse: true,
@@ -59,10 +64,10 @@ class _ChatState extends State<Chat> {
                     return ChatMessage(message: e);
                   },
                   itemCount: state.messages.length,
-            ),
-          ),
                 ),
-              )),
+              ),
+            ),
+          )),
           Container(
             width: double.maxFinite,
             child: pickInput(context, state),
@@ -75,7 +80,7 @@ class _ChatState extends State<Chat> {
   Widget pickInput(BuildContext context, ChatState state) {
     switch (state.inputType) {
       case "button":
-        selectedOptions= [];
+        selectedOptions = [];
         return Padding(
           padding: const EdgeInsets.only(bottom: 10),
           child: Wrap(
@@ -110,73 +115,130 @@ class _ChatState extends State<Chat> {
                   left: 15, top: 15, right: 0, bottom: 20),
               color: Colors.white,
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Expanded(
                     child: selectedOptions.isEmpty
                         ? Text(S.of(context).tap_options,
                             style: TextStyle(
-                                fontSize: 18.0, color: AppColor.placeholder))
+                                fontSize: 12.sp, fontWeight: FontWeight.w400, color: AppColor.placeholder))
                         : Text(
                             selectedOptions.join(", "),
-                            style: const TextStyle(
-                                color: AppColor.text, fontSize: 18.0),
+                            style:  TextStyle(
+                                color: AppColor.text, fontSize: 12.sp, fontWeight: FontWeight.w400),
                           ),
                   ),
-                  IconButton(onPressed: selectedOptions.isEmpty ?null :(){
-                    BlocProvider.of<ChatCubit>(context).sendMessage(selectedOptions.join(", "));
-                    setState(() {
-                      selectedOptions=[];
-                    });
-                  }, icon: Icon(Icons.send, color:selectedOptions.isEmpty ? AppColor.placeholder: AppColor.primary,))
+                  IconButton(
+                    onPressed: selectedOptions.isEmpty
+                        ? null
+                        : () {
+                            BlocProvider.of<ChatCubit>(context)
+                                .sendMessage(selectedOptions.join(", "));
+                            setState(() {
+                              selectedOptions = [];
+                            });
+                          },
+                    icon: Container(
+                      // padding: EdgeInsets.only(right: 24.w),
+                      height: 32.h,
+                      width: 32.h,
+                      child: SvgPicture.asset(
+                        "assets/images/sendFill.svg",
+                        // height: 24.h
+                        // semanticsLabel: 'Acme Logo'
+                      ),
+                    ),
+                    // Icon(Icons.send, color:selectedOptions.isEmpty ? AppColor.placeholder: AppColor.primary,)
+                  ),
+                  SizedBox(
+                    width: 24.w,
+                  )
                 ],
               )),
         );
 
       default:
-        selectedOptions= [];
+        selectedOptions = [];
         return Container(
-          height: 70,
+          // height: 60,
           color: Colors.white,
-          child: Row(
-            children: [
-              Expanded(
-                child: TextField(
-                  style: TextStyle(color: AppColor.text, fontSize: 18.0, decoration: TextDecoration.none),
-                  controller: _messageController,
-                  onSubmitted: (s) {
-                    if(s.trim().isEmpty) return;
-                    setState(() {
-                      _messageController.text = "";
-                      BlocProvider.of<ChatCubit>(context).sendMessage(s);
-                    });
-                  },
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.only(left: 15, top: 15, right: 0, bottom: 20),
-                    focusedBorder: InputBorder.none,
-                    enabledBorder: InputBorder.none,
-                    hintText: S.of(context).type_message,
-                    hintStyle: TextStyle(color: AppColor.placeholder),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: <BoxShadow>[
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.1),
+                  blurRadius: 30,
+                  spreadRadius: 10,
+                  offset: Offset(0, 18),
+                ),
+              ],
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    style: TextStyle(
+                        color: AppColor.text,
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w400,
+                        decoration: TextDecoration.none),
+                    controller: _messageController,
+                    onSubmitted: (s) {
+                      if (s.trim().isEmpty) return;
+                      setState(() {
+                        _messageController.text = "";
+                        BlocProvider.of<ChatCubit>(context).sendMessage(s);
+                      });
+                    },
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      contentPadding: EdgeInsets.only(
+                          left: 15, top: 15, right: 0, bottom: 20),
+                      focusedBorder: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      hintText: S.of(context).type_message,
+                      hintStyle: TextStyle(color: AppColor.placeholder),
+                    ),
+                    textInputAction: TextInputAction.send,
                   ),
-                  textInputAction: TextInputAction.send,
                 ),
-              ),
-              GestureDetector(
-                onTap: (){
-                  String s = _messageController.text;
-                  if(s.trim().isEmpty) return;
-                  setState(() {
-                    _messageController.text = "";
-                    BlocProvider.of<ChatCubit>(context).sendMessage(s);
-                  });
-                },
-                child: Container(margin: EdgeInsets.symmetric(horizontal: 10) ,
-                  height: 30, width:  30,
-                  decoration:  const BoxDecoration(color: AppColor.primary, shape:  BoxShape.circle),
-                  child: Icon(Icons.arrow_upward_sharp, color: AppColor.text2,),
+                Container(
+                  color: Colors.white,
+                  child: GestureDetector(
+                    onTap: () {
+                      String s = _messageController.text;
+                      if (s.trim().isEmpty) return;
+                      setState(() {
+                        _messageController.text = "";
+                        BlocProvider.of<ChatCubit>(context).sendMessage(s);
+                      });
+                    },
+                    child: Container(
+                      // padding: EdgeInsets.only(right: 24.w),
+                      height: 32.h,
+                      width: 32.h,
+                      child: SvgPicture.asset(
+                        "assets/images/sendFill.svg",
+                        // height: 24.h
+                        // semanticsLabel: 'Acme Logo'
+                      ),
+                    ),
+                    // Container(margin: EdgeInsets.symmetric(horizontal: 10) ,
+                    //   height: 30, width:  30,
+                    //   decoration:  const BoxDecoration(color: AppColor.primary, shape:  BoxShape.circle),
+                    //   child:
+                    //
+                    //   Icon(Icons.arrow_upward_sharp, color: AppColor.text2,),
+                    // ),
+                  ),
                 ),
-              )
-            ],
+                SizedBox(
+                  width: 24.w,
+                )
+              ],
+            ),
           ),
         );
     }
