@@ -33,6 +33,7 @@ class AppColor {
   static const Color text3 = const Color(0xFF7FD7E1);
 
   static const Color searchText = const Color(0xffffffff);
+  static const Color searchLabelText = const Color(0xffBDBAC9);
 
   static const Color inputBg = Color(0xffF6F8FC);
   static const Color inputBorder =  Color(0xffECF3FF);

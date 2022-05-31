@@ -35,159 +35,10 @@ class _IntroOneState extends State<IntroOne> {
                 image: AssetImage("assets/images/intro_bg.png"))),
         child: Stack(
           children: [
-            Container(
-              height: 500.h,
-              // color: Colors.yellow,
-              child: ListView(
-                controller: _scrollController,
-                shrinkWrap: true,
-                // reverse: true,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 65.w),
-                    child: ListView(
-                      physics: NeverScrollableScrollPhysics(),
-                      padding: EdgeInsets.zero,
-                      shrinkWrap: true,
-                      children: <Widget>[
-                        chatMessage("Hello!", "R"),
-                        chatMessage("Can i help you?", "R"),
-                        chatMessage("Hi, i have a headache!", "S"),
-                      ],
-                    ),
-                  ),
-                  if (index > 0)
-                    Column(
-                      children: [
-                        Container(
-                            child: CarouselSlider(
-                          carouselController: _sliderController,
-                          options: CarouselOptions(
-                              initialPage: 0,
-                              height: 170.h,
-                              enableInfiniteScroll: false,
-                              onPageChanged: (index, reason) {
-                                setState(() {
-                                  currentSliderIndex = index;
-                                });
-                              }),
-                          items: [1, 2, 3].map((i) {
-                            return Builder(
-                              builder: (BuildContext context) {
-                                return secondIntroScreen();
-                              },
-                            );
-                          }).toList(),
-                        )),
-                        Padding(
-                          padding: EdgeInsets.only(top: 24.h),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [0, 1, 2].asMap().entries.map((entry) {
-                              return GestureDetector(
-                                onTap: () =>
-                                    _sliderController.animateToPage(entry.key),
-                                child: Padding(
-                                  padding: EdgeInsets.only(left: 4.w),
-                                  child: Stack(
-                                    children: [
-                                      CircleAvatar(
-                                        radius: 4.h,
-                                        backgroundColor:
-                                            entry.key == currentSliderIndex
-                                                ? Colors.white
-                                                : AppColor.primary,
-                                      ),
-                                      Positioned.fill(
-                                        child: Align(
-                                          child: CircleAvatar(
-                                              radius: 3.h,
-                                              backgroundColor: entry.key ==
-                                                      currentSliderIndex
-                                                  ? AppColor.primary
-                                                  : Colors.white),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              );
-                            }).toList(),
-                          ),
-                        ),
-                      ],
-                    ),
-                  if (index > 1)
-                    ListView(
-                      physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      children: [
-                        thirdIntroScreenTab1(),
-                        thirdIntroScreenTab2(),
-                      ],
-                    )
-                ],
-              ),
-            ),
+
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 60.h, left: 16.w),
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 113.w,
-                        height: 4.h,
-                        decoration: BoxDecoration(color: Colors.white),
-                      ),
-                      SizedBox(
-                        width: 2.w,
-                      ),
-                      Container(
-                        width: 113.w,
-                        height: 4.h,
-                        decoration: BoxDecoration(
-                            color: index >= 1
-                                ? Colors.white
-                                : Colors.white.withOpacity(0.32)),
-                      ),
-                      SizedBox(
-                        width: 2.w,
-                      ),
-                      Container(
-                        width: 113.w,
-                        height: 4.h,
-                        decoration: BoxDecoration(
-                            color: index >= 2
-                                ? Colors.white
-                                : Colors.white.withOpacity(0.32)),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 14.h, // 24, below 10 added
-                ),
-                GestureDetector(
-                  onTap: () {
-                    widget.callback();
-                  },
-                  child: Padding(
-                    padding:
-                        EdgeInsets.only(left: 16.w, top: 10.h, right: 16.w),
-                    child: Text(
-                      "Skip",
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 48.h,
-                ),
 
                 Expanded(child: SizedBox()),
                 // SizedBox(
@@ -244,7 +95,155 @@ class _IntroOneState extends State<IntroOne> {
 
                 "assets/images/shade1.png",
               ))),
-            )
+            ),
+            Container(
+              height: 500.h,
+              // color: Colors.yellow,
+              child: ListView(
+                padding: EdgeInsets.only(top: index==0?150.h:10.h),
+                controller: _scrollController,
+                shrinkWrap: true,
+                // reverse: true,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 65.w),
+                    child: ListView(
+                      physics: NeverScrollableScrollPhysics(),
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      children: <Widget>[
+                        chatMessage("Hello!", "R"),
+                        chatMessage("Can i help you?", "R"),
+                        chatMessage("Hi, i have a headache!", "S"),
+                      ],
+                    ),
+                  ),
+                  if (index > 0)
+                    Column(
+                      children: [
+                        Container(
+                            child: CarouselSlider(
+                              carouselController: _sliderController,
+                              options: CarouselOptions(
+                                  initialPage: 0,
+                                  height: 170.h,
+                                  enableInfiniteScroll: false,
+                                  onPageChanged: (index, reason) {
+                                    setState(() {
+                                      currentSliderIndex = index;
+                                    });
+                                  }),
+                              items: [1, 2, 3].map((i) {
+                                return Builder(
+                                  builder: (BuildContext context) {
+                                    return secondIntroScreen();
+                                  },
+                                );
+                              }).toList(),
+                            )),
+                        Padding(
+                          padding: EdgeInsets.only(top: 24.h),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [0, 1, 2].asMap().entries.map((entry) {
+                              return GestureDetector(
+                                onTap: () =>
+                                    _sliderController.animateToPage(entry.key),
+                                child: Padding(
+                                  padding: EdgeInsets.only(left: 4.w),
+                                  child: Stack(
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 4.h,
+                                        backgroundColor:
+                                        entry.key == currentSliderIndex
+                                            ? Colors.white
+                                            : AppColor.primary,
+                                      ),
+                                      Positioned.fill(
+                                        child: Align(
+                                          child: CircleAvatar(
+                                              radius: 3.h,
+                                              backgroundColor: entry.key ==
+                                                  currentSliderIndex
+                                                  ? AppColor.primary
+                                                  : Colors.white),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      ],
+                    ),
+                  if (index > 1)
+                    ListView(
+                      physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      children: [
+                        thirdIntroScreenTab1(),
+                        thirdIntroScreenTab2(),
+                      ],
+                    )
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 60.h, left: 16.w),
+              child: Row(
+                children: [
+                  Container(
+                    width: 113.w,
+                    height: 4.h,
+                    decoration: BoxDecoration(color: Colors.white),
+                  ),
+                  SizedBox(
+                    width: 2.w,
+                  ),
+                  Container(
+                    width: 113.w,
+                    height: 4.h,
+                    decoration: BoxDecoration(
+                        color: index >= 1
+                            ? Colors.white
+                            : Colors.white.withOpacity(0.32)),
+                  ),
+                  SizedBox(
+                    width: 2.w,
+                  ),
+                  Container(
+                    width: 113.w,
+                    height: 4.h,
+                    decoration: BoxDecoration(
+                        color: index >= 2
+                            ? Colors.white
+                            : Colors.white.withOpacity(0.32)),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 88.h),
+              child: GestureDetector(
+                onTap: () {
+                  widget.callback();
+                },
+                child: Padding(
+                  padding:
+                  EdgeInsets.only(left: 16.w, top: 10.h, right: 16.w),
+                  child: Text(
+                    "Skip",
+                    style: TextStyle(
+                        fontSize: 14.sp,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

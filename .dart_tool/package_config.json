@@ -206,6 +206,24 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_keyboard_visibility",
+      "rootUri": "file:///Users/macbook/Desktop/fluttersdk/flutter2.10.1/.pub-cache/hosted/pub.dartlang.org/flutter_keyboard_visibility-5.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_keyboard_visibility_platform_interface",
+      "rootUri": "file:///Users/macbook/Desktop/fluttersdk/flutter2.10.1/.pub-cache/hosted/pub.dartlang.org/flutter_keyboard_visibility_platform_interface-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_keyboard_visibility_web",
+      "rootUri": "file:///Users/macbook/Desktop/fluttersdk/flutter2.10.1/.pub-cache/hosted/pub.dartlang.org/flutter_keyboard_visibility_web-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_launcher_icons",
       "rootUri": "file:///Users/macbook/Desktop/fluttersdk/flutter2.10.1/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.9.2",
       "packageUri": "lib/",
@@ -710,7 +728,7 @@
       "languageVersion": "2.15"
     }
   ],
-  "generated": "2022-05-30T21:04:24.889998Z",
+  "generated": "2022-05-31T20:52:38.373802Z",
   "generator": "pub",
   "generatorVersion": "2.16.1"
 }

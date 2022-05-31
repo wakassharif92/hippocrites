@@ -19,6 +19,7 @@ INJECTED from /Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main
 INJECTED from /Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:1:1-43:12
 INJECTED from /Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:1:1-43:12
 MERGED from /Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:1:1-43:12
+MERGED from [:flutter_keyboard_visibility] /Users/macbook/Desktop/project/waqas/hmd_care/build/flutter_keyboard_visibility/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:path_provider_android] /Users/macbook/Desktop/project/waqas/hmd_care/build/path_provider_android/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:url_launcher_android] /Users/macbook/Desktop/project/waqas/hmd_care/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-14:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/macbook/.gradle/caches/transforms-2/files-2.1/761d5aed95183ada80b8d01ca626656b/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:17:1-23:12
@@ -77,6 +78,8 @@ uses-sdk
 INJECTED from /Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml
+MERGED from [:flutter_keyboard_visibility] /Users/macbook/Desktop/project/waqas/hmd_care/build/flutter_keyboard_visibility/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_keyboard_visibility] /Users/macbook/Desktop/project/waqas/hmd_care/build/flutter_keyboard_visibility/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider_android] /Users/macbook/Desktop/project/waqas/hmd_care/build/path_provider_android/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider_android] /Users/macbook/Desktop/project/waqas/hmd_care/build/path_provider_android/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher_android] /Users/macbook/Desktop/project/waqas/hmd_care/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44

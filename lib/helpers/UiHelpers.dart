@@ -80,3 +80,34 @@ Widget chatMessage(String text, type) {
     ),
   );
 }
+
+InputDecoration getSearchDecoration(){
+  return  InputDecoration(
+
+      filled: true,
+
+      fillColor: Colors.white,
+      errorStyle: TextStyle(
+        color: AppColor.error,
+      ),
+      contentPadding:
+      EdgeInsets.only(left: 28.w, top: 26.h, bottom: 16.h),
+
+      // labelStyle: TextStyle(
+      //     fontSize: 14.sp,
+      //     color: Colors.black,
+      //     fontWeight: FontWeight.w500),
+    hintText: "Search",
+      hintStyle: TextStyle(
+          fontSize: 13.sp,
+          color: AppColor.searchLabelText,
+          fontWeight: FontWeight.w300),
+
+      enabledBorder: InputBorder.none,
+      disabledBorder: InputBorder.none,
+
+      focusedBorder: InputBorder.none,
+      focusedErrorBorder: InputBorder.none,
+      errorBorder: InputBorder.none,
+      border: InputBorder.none,);
+}

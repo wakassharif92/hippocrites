@@ -177,31 +177,37 @@ class _ChatState extends State<Chat> {
             child: Row(
               children: [
                 Expanded(
-                  child: TextField(
-                    style: TextStyle(
-                        color: AppColor.text,
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w400,
-                        decoration: TextDecoration.none),
-                    controller: _messageController,
-                    onSubmitted: (s) {
-                      if (s.trim().isEmpty) return;
-                      setState(() {
-                        _messageController.text = "";
-                        BlocProvider.of<ChatCubit>(context).sendMessage(s);
-                      });
-                    },
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      contentPadding: EdgeInsets.only(
-                          left: 15, top: 15, right: 0, bottom: 20),
-                      focusedBorder: InputBorder.none,
-                      enabledBorder: InputBorder.none,
-                      hintText: S.of(context).type_message,
-                      hintStyle: TextStyle(color: AppColor.placeholder),
+                  child: Container(
+                    height: 60.h,
+                    child: TextField(
+
+                      style: TextStyle(
+                          color: AppColor.text,
+                          height: 2.h,
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w400,
+                          decoration: TextDecoration.none),
+
+                      controller: _messageController,
+                      onSubmitted: (s) {
+                        if (s.trim().isEmpty) return;
+                        setState(() {
+                          _messageController.text = "";
+                          BlocProvider.of<ChatCubit>(context).sendMessage(s);
+                        });
+                      },
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        contentPadding: EdgeInsets.only(
+                            left: 15, top: 15, right: 0, bottom: 20),
+                        focusedBorder: InputBorder.none,
+                        enabledBorder: InputBorder.none,
+                        hintText: S.of(context).type_message,
+                        hintStyle: TextStyle(color: AppColor.placeholder),
+                      ),
+                      textInputAction: TextInputAction.send,
                     ),
-                    textInputAction: TextInputAction.send,
                   ),
                 ),
                 Container(
