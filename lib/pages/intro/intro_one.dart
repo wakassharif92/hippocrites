@@ -27,12 +27,11 @@ class _IntroOneState extends State<IntroOne> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueAccent,
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage("assets/images/intro_bg.png"))),
+                image: AssetImage("assets/images/introBg.jpeg"))),
         child: Stack(
           children: [
 

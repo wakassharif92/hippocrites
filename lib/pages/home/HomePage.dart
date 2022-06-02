@@ -5,9 +5,7 @@ import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hmd_chatbot/bloc/ChatCubit.dart';
 import 'package:hmd_chatbot/bloc/UserDataCubit.dart';
-import 'package:hmd_chatbot/bloc/AuthCubit.dart';
 import 'package:hmd_chatbot/components/Chat.dart';
-import 'package:hmd_chatbot/generated/l10n.dart';
 import 'package:hmd_chatbot/helpers/AppColor.dart';
 import 'package:hmd_chatbot/helpers/UiHelpers.dart';
 import 'package:hmd_chatbot/pages/home/ProfilePage.dart';
@@ -171,96 +169,164 @@ class _HomePageState extends State<HomePage> {
                             topRight: Radius.circular(40.w)),
                       ),
                       height: 104.h,
-                      padding: EdgeInsets.only(top: 18.h, left: 25.13.w),
+                      padding: EdgeInsets.only(top: 18.h, left: 0.w),
                       width: double.infinity,
-                      child: Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.baseline,
-                        textBaseline: TextBaseline.alphabetic,
+                      child: Stack(
                         children: [
-                          InkWell(
-                              child: getNavIcon(0, false, "Start Over"),
-                              onTap: () {
-                                BlocProvider.of<ChatCubit>(context).initChat();
-                              }),
-                          SizedBox(
-                            width: 22.25.w,
-                          ),
-                          InkWell(
-                              child: getNavIcon(1, false, "Diagnosis"),
-                              onTap: () {
-                                updateActiveTab(1);
-                              }),
-                          SizedBox(
-                            width: 22.13.w,
-                          ),
-                          InkWell(
-                              child: Column(
-                                children: [
-                                  Stack(
-                                    children: [
-                                      Container(
-                                        width: 72.w,
-                                        height: 40.h,
-                                        decoration: BoxDecoration(
-                                          color: AppColor.primary,
-                                          borderRadius:
-                                              BorderRadius.circular(14.h),
-                                          boxShadow: <BoxShadow>[
-                                            BoxShadow(
-                                              color: AppColor.primary
-                                                  .withOpacity(0.3),
-                                              blurRadius: 20,
-                                              spreadRadius: 5,
-                                              offset: Offset(0, 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.baseline,
+                            textBaseline: TextBaseline.alphabetic,
+                            children: [
+                              SizedBox(
+                                width: 16.w,
+                              ),
+                              InkWell(
+                                  child: getNavIcon(0, false, "Start Over"),
+                                  onTap: () {
+                                    BlocProvider.of<ChatCubit>(context)
+                                        .initChat();
+                                  }),
+
+                              InkWell(
+                                  child: getNavIcon(1, false, "Diagnosis"),
+                                  onTap: () {
+                                    updateActiveTab(1);
+                                  }),
+                              // SizedBox(
+                              //   width: 22.13.w,
+                              // ),
+                              //
+                              InkWell(
+                                  child: Container(
+                                    width: 90.w,
+                                    child: Column(
+                                      children: [
+                                        Stack(
+                                          children: [
+                                            Container(
+                                              width: 72.w,
+                                              height: 40.h,
+                                              decoration: BoxDecoration(
+                                                color: AppColor.primary,
+                                                borderRadius:
+                                                BorderRadius.circular(14.h),
+                                                boxShadow: <BoxShadow>[
+                                                  BoxShadow(
+                                                    color: AppColor.primary
+                                                        .withOpacity(0.3),
+                                                    blurRadius: 20,
+                                                    spreadRadius: 5,
+                                                    offset: Offset(0, 10),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
+                                            Positioned.fill(
+                                              child: Align(
+                                                child: Container(
+                                                  height: 24.h,
+                                                  width: 24.h,
+                                                  child: SvgPicture.asset(
+                                                      "assets/images/nav/3.svg",
+                                                      height: 24.h
+                                                    // semanticsLabel: 'Acme Logo'
+                                                  ),
+                                                ),
+                                              ),
+                                            )
                                           ],
                                         ),
-                                      ),
-                                      Positioned.fill(
-                                        child: Align(
-                                          child: Container(
-                                            height: 24.h,
-                                            width: 24.h,
-                                            child: SvgPicture.asset(
-                                                "assets/images/nav/3.svg",
-                                                height: 24.h
-                                                // semanticsLabel: 'Acme Logo'
-                                                ),
-                                          ),
+                                        SizedBox(
+                                          height: 4.h,
                                         ),
-                                      )
-                                    ],
+                                        Text(
+                                          "Ask a question",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headline5,
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                  SizedBox(
-                                    height: 4.h,
-                                  ),
-                                  Text(
-                                    "Ask a question",
-                                    style:
-                                        Theme.of(context).textTheme.headline5,
-                                  )
-                                ],
+                                  onTap: () {
+                                    updateActiveTab(2);
+                                  }),
+                              InkWell(
+                                  child: getNavIcon(3, false, "Library"),
+                                  onTap: () {
+                                    updateActiveTab(3);
+                                  }),
+                              // SizedBox(
+                              //   width: 27.63.w,
+                              // ),
+                              InkWell(
+                                  child: getNavIcon(4, false, "Profile"),
+                                  onTap: () {
+                                    updateActiveTab(4);
+                                  }),
+                              SizedBox(
+                                width: 16.w,
                               ),
-                              onTap: () {
-                                updateActiveTab(2);
-                              }),
-                          SizedBox(
-                            width: 27.63.w,
+                            ],
                           ),
-                          InkWell(
-                              child: getNavIcon(3, false, "Library"),
-                              onTap: () {
-                                updateActiveTab(3);
-                              }),
-                          SizedBox(
-                            width: 27.63.w,
-                          ),
-                          InkWell(
-                              child: getNavIcon(4, false, "Profile"),
-                              onTap: () {
-                                updateActiveTab(4);
-                              }),
+                          // Row(
+                          //   mainAxisAlignment: MainAxisAlignment.center,
+                          //   children: [
+                          //     InkWell(
+                          //         child: Column(
+                          //           children: [
+                          //             Stack(
+                          //               children: [
+                          //                 Container(
+                          //                   width: 72.w,
+                          //                   height: 40.h,
+                          //                   decoration: BoxDecoration(
+                          //                     color: AppColor.primary,
+                          //                     borderRadius:
+                          //                         BorderRadius.circular(14.h),
+                          //                     boxShadow: <BoxShadow>[
+                          //                       BoxShadow(
+                          //                         color: AppColor.primary
+                          //                             .withOpacity(0.3),
+                          //                         blurRadius: 20,
+                          //                         spreadRadius: 5,
+                          //                         offset: Offset(0, 10),
+                          //                       ),
+                          //                     ],
+                          //                   ),
+                          //                 ),
+                          //                 Positioned.fill(
+                          //                   child: Align(
+                          //                     child: Container(
+                          //                       height: 24.h,
+                          //                       width: 24.h,
+                          //                       child: SvgPicture.asset(
+                          //                           "assets/images/nav/3.svg",
+                          //                           height: 24.h
+                          //                           // semanticsLabel: 'Acme Logo'
+                          //                           ),
+                          //                     ),
+                          //                   ),
+                          //                 )
+                          //               ],
+                          //             ),
+                          //             SizedBox(
+                          //               height: 4.h,
+                          //             ),
+                          //             Text(
+                          //               "Ask a question",
+                          //               style: Theme.of(context)
+                          //                   .textTheme
+                          //                   .headline5,
+                          //             )
+                          //           ],
+                          //         ),
+                          //         onTap: () {
+                          //           updateActiveTab(2);
+                          //         }),
+                          //   ],
+                          // )
                         ],
                       ),
                     )
@@ -269,8 +335,8 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     height: 48.h,
                     decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(16.h),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16.h),
                       boxShadow: <BoxShadow>[
                         BoxShadow(
                           color: AppColor.primary.withOpacity(0.3),
@@ -282,7 +348,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                     margin: EdgeInsets.only(top: 93.h, left: 16.w, right: 16.w),
                     child: Row(
-
                       children: [
                         Padding(
                           padding: EdgeInsets.only(left: 12.w),
@@ -294,7 +359,6 @@ class _HomePageState extends State<HomePage> {
                         Expanded(
                           child: Container(
                             child: TextField(
-
                                 focusNode: searcFocus,
                                 cursorColor: AppColor.searchLabelText,
                                 controller: ctrlSearch,
@@ -312,19 +376,23 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         searcFocus.hasFocus
-                            ? GestureDetector(
-                          onTap: (){
-                            ctrlSearch.text = "";
-                          },
-                              child: Padding(
-                                  padding: EdgeInsets.only(right: 24.w),
-                                  child: SvgPicture.asset(
+                            ? InkWell(
+                                onTap: () {
+                                  ctrlSearch.text = "";
+                                },
+                                child: Container(
+                                  height: double.maxFinite,
+                                  // color: Colors.red,
+                                  child: Padding(
+                                    padding: EdgeInsets.only(right: 24.w),
+                                    child: SvgPicture.asset(
                                       "assets/images/close.svg",
 
                                       // semanticsLabel: 'Acme Logo'
-                                      ),
+                                    ),
+                                  ),
                                 ),
-                            )
+                              )
                             : SizedBox(
                                 width: 100.w,
                               )
@@ -350,29 +418,32 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget getNavIcon(int index, bool isActive, String title) {
-    return Column(
-      children: [
-        Container(
-          height: 24.h,
-          width: 24.h,
-          child: SvgPicture.asset("assets/images/nav/${index + 1}.svg",
-              height: 24.h
-              // semanticsLabel: 'Acme Logo'
-              ),
-        ),
-        Container(
-          margin: EdgeInsets.symmetric(vertical: 4.h),
-          width: 24.w,
-          height: 2.h,
-          decoration: BoxDecoration(
-              color: activeIndex == index ? AppColor.primary : Colors.black,
-              borderRadius: BorderRadius.circular(50)),
-        ),
-        Text(
-          title,
-          style: Theme.of(context).textTheme.headline5,
-        )
-      ],
+    return Container(
+      width: 60.w,
+      child: Column(
+        children: [
+          Container(
+            height: 24.h,
+            width: 24.h,
+            child: SvgPicture.asset("assets/images/nav/${index + 1}.svg",
+                height: 24.h
+                // semanticsLabel: 'Acme Logo'
+                ),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 4.h),
+            width: 24.w,
+            height: 2.h,
+            decoration: BoxDecoration(
+                color: activeIndex == index ? AppColor.primary : Colors.black,
+                borderRadius: BorderRadius.circular(50)),
+          ),
+          Text(
+            title,
+            style: Theme.of(context).textTheme.headline5,
+          )
+        ],
+      ),
     );
   }
 
