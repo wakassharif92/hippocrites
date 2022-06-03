@@ -1,0 +1,4 @@
+#Fri Jun 03 20:56:57 PKT 2022
+base.0=/Users/macbook/Desktop/project/waqas/hmd_care/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
