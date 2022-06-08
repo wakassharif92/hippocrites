@@ -61,7 +61,30 @@ class _ChatState extends State<Chat> {
                   itemBuilder: (BuildContext context, int index) {
                     var m = state.messages;
                     var e = m[m.length - index - 1];
-                    return ChatMessage(message: e);
+                    return Column(
+                      children: [
+                        ChatMessage(e, selectedOptions),
+                    if (state.inputType == "autocompite" &&index == 0)
+                    Container(
+                          width: MediaQuery.of(context).size.width * 1,
+                          padding:
+                          EdgeInsets.symmetric(horizontal: 24.w, vertical: 20.h),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                primary: AppColor.darkPurple,
+                                shadowColor: Colors.white,
+                                elevation: 0),
+                            onPressed: () {
+                              showOptionSheet(state);
+                            },
+                            child: Text(
+                              "Choose symptoms",
+                              style: const TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        )
+                      ],
+                    );
                   },
                   itemCount: state.messages.length,
                 ),
@@ -75,6 +98,21 @@ class _ChatState extends State<Chat> {
         ],
       ),
     );
+  }
+
+  showOptionSheet(ChatState state) async {
+    // selectedOptions = [];
+     await showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        builder: (c) => OptionsDialog(
+              selected: selectedOptions,
+              options: state.options ?? [],
+            ));
+
+     setState(() {});
+    return ;
+
   }
 
   Widget pickInput(BuildContext context, ChatState state) {
@@ -100,16 +138,7 @@ class _ChatState extends State<Chat> {
         );
       case "autocompite":
         return GestureDetector(
-          onTap: () async {
-            await showModalBottomSheet(
-                context: context,
-                isScrollControlled: true,
-                builder: (c) => OptionsDialog(
-                      selected: selectedOptions,
-                      options: state.options ?? [],
-                    ));
-            setState(() {});
-          },
+          onTap: () async {},
           child: Container(
               padding: const EdgeInsets.only(
                   left: 15, top: 15, right: 0, bottom: 20),
@@ -121,11 +150,15 @@ class _ChatState extends State<Chat> {
                     child: selectedOptions.isEmpty
                         ? Text(S.of(context).tap_options,
                             style: TextStyle(
-                                fontSize: 12.sp, fontWeight: FontWeight.w400, color: AppColor.placeholder))
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400,
+                                color: AppColor.placeholder))
                         : Text(
                             selectedOptions.join(", "),
-                            style:  TextStyle(
-                                color: AppColor.text, fontSize: 12.sp, fontWeight: FontWeight.w400),
+                            style: TextStyle(
+                                color: AppColor.text,
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400),
                           ),
                   ),
                   IconButton(
@@ -180,14 +213,12 @@ class _ChatState extends State<Chat> {
                   child: Container(
                     height: 60.h,
                     child: TextField(
-
                       style: TextStyle(
                           color: AppColor.text,
                           height: 2.h,
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           decoration: TextDecoration.none),
-
                       controller: _messageController,
                       onSubmitted: (s) {
                         if (s.trim().isEmpty) return;

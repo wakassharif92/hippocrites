@@ -165,8 +165,8 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ],
                         borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(40.w),
-                            topRight: Radius.circular(40.w)),
+                            topLeft: Radius.circular(0.w),
+                            topRight: Radius.circular(0.w)),
                       ),
                       height: 104.h,
                       padding: EdgeInsets.only(top: 18.h, left: 0.w),

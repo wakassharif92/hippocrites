@@ -54,7 +54,19 @@ ElevatedButton getDimButton(BuildContext context, onClick, String text) {
     ),
   );
 }
-
+ElevatedButton getBlackCustomButton(BuildContext context,Function onClick, String text) {
+  return ElevatedButton(
+    style: ElevatedButton.styleFrom(
+        primary: AppColor.darkPurple, shadowColor: Colors.white, elevation: 0),
+    onPressed: (){
+      onClick();
+    },
+    child: Text(
+      text,
+      style: const TextStyle(color: Colors.white),
+    ),
+  );
+}
 Widget chatMessage(String text, type) {
   return Container(
     padding: EdgeInsets.only(bottom: 16.h),

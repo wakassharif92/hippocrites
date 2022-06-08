@@ -34,11 +34,9 @@ class _IntroOneState extends State<IntroOne> {
                 image: AssetImage("assets/images/introBg.jpeg"))),
         child: Stack(
           children: [
-
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 Expanded(child: SizedBox()),
                 // SizedBox(
                 //   height: 332.h,
@@ -84,22 +82,12 @@ class _IntroOneState extends State<IntroOne> {
                 ),
               ],
             ),
-            Container(
-              height: 153,
-              width: MediaQuery.of(context).size.width * 1,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                      image: AssetImage(
 
-                "assets/images/shade1.png",
-              ))),
-            ),
             Container(
               height: 500.h,
               // color: Colors.yellow,
               child: ListView(
-                padding: EdgeInsets.only(top: index==0?150.h:10.h),
+                padding: EdgeInsets.only(top: index == 0 ? 150.h : 10.h),
                 controller: _scrollController,
                 shrinkWrap: true,
                 // reverse: true,
@@ -122,24 +110,24 @@ class _IntroOneState extends State<IntroOne> {
                       children: [
                         Container(
                             child: CarouselSlider(
-                              carouselController: _sliderController,
-                              options: CarouselOptions(
-                                  initialPage: 0,
-                                  height: 170.h,
-                                  enableInfiniteScroll: false,
-                                  onPageChanged: (index, reason) {
-                                    setState(() {
-                                      currentSliderIndex = index;
-                                    });
-                                  }),
-                              items: [1, 2, 3].map((i) {
-                                return Builder(
-                                  builder: (BuildContext context) {
-                                    return secondIntroScreen();
-                                  },
-                                );
-                              }).toList(),
-                            )),
+                          carouselController: _sliderController,
+                          options: CarouselOptions(
+                              initialPage: 0,
+                              height: 170.h,
+                              enableInfiniteScroll: false,
+                              onPageChanged: (index, reason) {
+                                setState(() {
+                                  currentSliderIndex = index;
+                                });
+                              }),
+                          items: [1, 2, 3].map((i) {
+                            return Builder(
+                              builder: (BuildContext context) {
+                                return secondIntroScreen();
+                              },
+                            );
+                          }).toList(),
+                        )),
                         Padding(
                           padding: EdgeInsets.only(top: 24.h),
                           child: Row(
@@ -155,16 +143,16 @@ class _IntroOneState extends State<IntroOne> {
                                       CircleAvatar(
                                         radius: 4.h,
                                         backgroundColor:
-                                        entry.key == currentSliderIndex
-                                            ? Colors.white
-                                            : AppColor.primary,
+                                            entry.key == currentSliderIndex
+                                                ? Colors.white
+                                                : AppColor.primary,
                                       ),
                                       Positioned.fill(
                                         child: Align(
                                           child: CircleAvatar(
                                               radius: 3.h,
                                               backgroundColor: entry.key ==
-                                                  currentSliderIndex
+                                                      currentSliderIndex
                                                   ? AppColor.primary
                                                   : Colors.white),
                                         ),
@@ -189,6 +177,16 @@ class _IntroOneState extends State<IntroOne> {
                     )
                 ],
               ),
+            ),
+            Container(
+              height: 153,
+              width: MediaQuery.of(context).size.width * 1,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        "assets/images/shade1.png",
+                      ))),
             ),
             Padding(
               padding: EdgeInsets.only(top: 60.h, left: 16.w),
@@ -231,8 +229,7 @@ class _IntroOneState extends State<IntroOne> {
                   widget.callback();
                 },
                 child: Padding(
-                  padding:
-                  EdgeInsets.only(left: 16.w, top: 10.h, right: 16.w),
+                  padding: EdgeInsets.only(left: 16.w, top: 10.h, right: 16.w),
                   child: Text(
                     "Skip",
                     style: TextStyle(
