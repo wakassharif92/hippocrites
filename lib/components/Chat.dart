@@ -68,9 +68,10 @@ class _ChatState extends State<Chat> {
                     var m = state.messages;
                     var e = m[m.length - index - 1];
                     return Column(
+
                       children: [
                         ChatMessage(e, selectedOptions),
-                    if (state.inputType == "autocompite" &&index == 0)
+                   if (state.inputType == "autocompite" &&index == 0)
                     Container(
                           width: MediaQuery.of(context).size.width * 1,
                           padding:
