@@ -25,7 +25,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool searchMode = false;
   late ItemScrollController itemScrollController;
-  int activeIndex = 2;
+  int activeIndex = 1;
   FocusNode searcFocus = FocusNode();
 
   TextEditingController ctrlSearch = TextEditingController();
@@ -140,11 +140,15 @@ class _HomePageState extends State<HomePage> {
                         child: Padding(
                           padding: EdgeInsets.only(left: 16.w, bottom: 30.h),
                           child: Text(
-                            (activeIndex == 2)
-                                ? "Ask a question"
-                                : (activeIndex == 4)
-                                    ? "Account settings"
-                                    : "",
+                            (activeIndex == 0)
+                                ? "Info":
+                            (activeIndex == 1)
+                                ? "Diagnosis"
+                                : (activeIndex == 2)
+                                    ? "Ask a question"
+                                    : (activeIndex == 4)
+                                        ? "Account settings"
+                                        : "",
                             style: Theme.of(context).textTheme.headline4,
                           ),
                         )),
@@ -182,10 +186,11 @@ class _HomePageState extends State<HomePage> {
                                 width: 16.w,
                               ),
                               InkWell(
-                                  child: getNavIcon(0, false, "Start Over"),
+                                  child: getNavIcon(0, false, "Info"),
                                   onTap: () {
-                                    BlocProvider.of<ChatCubit>(context)
-                                        .initChat();
+                                    updateActiveTab(0);
+                                    // BlocProvider.of<ChatCubit>(context)
+                                    //     .initChat();
                                   }),
 
                               InkWell(
@@ -210,7 +215,7 @@ class _HomePageState extends State<HomePage> {
                                               decoration: BoxDecoration(
                                                 color: AppColor.primary,
                                                 borderRadius:
-                                                BorderRadius.circular(14.h),
+                                                    BorderRadius.circular(14.h),
                                                 boxShadow: <BoxShadow>[
                                                   BoxShadow(
                                                     color: AppColor.primary
@@ -230,8 +235,8 @@ class _HomePageState extends State<HomePage> {
                                                   child: SvgPicture.asset(
                                                       "assets/images/nav/3.svg",
                                                       height: 24.h
-                                                    // semanticsLabel: 'Acme Logo'
-                                                  ),
+                                                      // semanticsLabel: 'Acme Logo'
+                                                      ),
                                                 ),
                                               ),
                                             )
@@ -331,7 +336,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     )
                 ]),
-                if (activeIndex == 2)
+                if (activeIndex == 2 || activeIndex==1)
                   Container(
                     height: 48.h,
                     decoration: BoxDecoration(
@@ -448,13 +453,19 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildScreens(index) {
+
     return [
-      Center(child: Text("screen 1 ")),
-      Center(child: Text("screen 2")),
+      const Center(child: Text("Info comming soon")),
+      // const Center(child: Text("Info comming soon")),
       Chat(
-        itemScrollController: itemScrollController,
-      ),
-      Center(child: Text("screen 4")),
+        key:ValueKey("456"),
+          itemScrollController: itemScrollController,
+          typeOfChat: "Make a diagnosis"),
+      Chat(
+        key:ValueKey("123"),
+          itemScrollController: itemScrollController,
+          typeOfChat: "Ask a question"),
+    const   Center(child: Text("History comming soon")),
       BlocProvider(
           create: (BuildContext context) => UserDataCubit(
               storageFactory: StorageFactory(), apiFactory: APIFactory()),

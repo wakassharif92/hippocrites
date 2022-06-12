@@ -473,4 +473,9 @@ class _IntroOneState extends State<IntroOne> {
       ],
     );
   }
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 }

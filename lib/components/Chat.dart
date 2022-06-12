@@ -7,25 +7,31 @@ import 'package:hmd_chatbot/components/ChatMessage.dart';
 import 'package:hmd_chatbot/components/OptionsDialog.dart';
 import 'package:hmd_chatbot/generated/l10n.dart';
 import 'package:hmd_chatbot/helpers/AppColor.dart';
-import 'package:hmd_chatbot/models/Message.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Chat extends StatefulWidget {
-  const Chat({Key? key, required this.itemScrollController})
+  final String typeOfChat;
+    Chat({Key? key, required this.itemScrollController,required this.typeOfChat})
       : super(
           key: key,
         );
   final ItemScrollController itemScrollController;
 
   @override
-  _ChatState createState() => _ChatState();
+  _ChatState createState(){
+    print(typeOfChat);
+    // BlocProvider.of<ChatCubit>(currentc).initChat(typeOfChat);
+    return _ChatState();
+  }
 }
 
 class _ChatState extends State<Chat> {
   @override
   void initState() {
-    BlocProvider.of<ChatCubit>(context).initChat();
+    print("type");
+    print(widget.typeOfChat);
+    BlocProvider.of<ChatCubit>(context).initChat(widget.typeOfChat);
     super.initState();
   }
 
@@ -279,5 +285,10 @@ class _ChatState extends State<Chat> {
           ),
         );
     }
+  }
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
   }
 }

@@ -27,7 +27,7 @@ class _IndexState extends State<Index> {
         return
           BlocProvider(
             create: (BuildContext context) => ChatCubit(
-                storageFactory: StorageFactory(), apiFactory: APIFactory()),child: const HomePage());
+                storageFactory: StorageFactory(), apiFactory: APIFactory()),child:  HomePage());
       } else if (loggedIn && !introCompleted){
         return IntroOne((){
           setState(() {

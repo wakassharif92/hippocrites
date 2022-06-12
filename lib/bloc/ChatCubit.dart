@@ -93,7 +93,7 @@ class ChatCubit extends Cubit<ChatState> {
 
   String _dateFormat(DateTime d)=>"${d.year}-${d.month<10?"0":""}${d.month}-${d.day<10?"0":""}${d.day}";
 
-  initChat() async {
+  initChat(String typeOfChat) async {
     var s = storageFactory.getStorage();
     var ans = await apiFactory
         .getHandler()
@@ -108,11 +108,13 @@ class ChatCubit extends Cubit<ChatState> {
       for (var element in ans.messages) {
         s.saveMessage(message: Message.fromMap(s.lastMessageId + 1, element));
       }
-      emit(ChatState(
-          messages: storageFactory.getStorage().messages,
-          options: ans.options,
-          questionType: ans.questionType,
-          inputType: ans.inputType));
+      sendMessage(typeOfChat);
+      //
+      // emit(ChatState(
+      //     messages: storageFactory.getStorage().messages,
+      //     options: ans.options,
+      //     questionType: ans.questionType,
+      //     inputType: ans.inputType));
     }
   }
 

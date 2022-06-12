@@ -1,12 +1,10 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:hmd_chatbot/bloc/AuthCubit.dart';
-import 'package:hmd_chatbot/bloc/ChatCubit.dart';
-import 'package:hmd_chatbot/components/OptionsDialog.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:hmd_chatbot/generated/l10n.dart';
 import 'package:hmd_chatbot/helpers/AppColor.dart';
-import 'package:hmd_chatbot/helpers/UiHelpers.dart';
 import 'package:hmd_chatbot/models/Message.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -18,7 +16,7 @@ class ChatMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width * 0.65;
+    var width = MediaQuery.of(context).size.width * 0.85;
     var boxConstraints = BoxConstraints(maxWidth: width, minWidth: 150.0);
 
 
@@ -98,8 +96,8 @@ class ChatMessage extends StatelessWidget {
                                       child: SelectableText(
                                         message.title!.toUpperCase(),
                                         style: TextStyle(
-                                            fontSize: 18.sp,
-                                            fontWeight: FontWeight.w300,
+                                            fontSize: 15.sp,
+                                            fontWeight: FontWeight.w600,
                                             color: message.fromUser
                                                 ? AppColor.msgUserText
                                                 : AppColor.msgBotText),
@@ -108,7 +106,8 @@ class ChatMessage extends StatelessWidget {
                                   ),
                                   if (message.probability != null)
                                     Column(
-                                      mainAxisSize: MainAxisSize.min,
+                                      // mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text((message.probability! < 50
                                                 ? S.of(context).low
@@ -116,15 +115,22 @@ class ChatMessage extends StatelessWidget {
                                                     ? S.of(context).medium
                                                     : S.of(context).high) +
                                             " " +
-                                            S.of(context).probability),
+                                            S.of(context).probability,
+                                        style: TextStyle(fontSize: 10.sp,fontWeight: FontWeight.w400),),
                                         Container(
-                                          padding: EdgeInsets.only(top: 5),
-                                          width: 100,
-                                          child: LinearProgressIndicator(
-                                            backgroundColor:
-                                                AppColor.primary.withOpacity(0.5),
-                                            color: AppColor.primary,
-                                            value: message.probability! / 100,
+                                          margin: EdgeInsets.only(top: 4.h),
+                                          width: 91.w,
+                                          height:2.h ,
+
+                                          child: ClipRRect(
+                                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                                            child: LinearProgressIndicator(
+
+                                              backgroundColor:
+                                                  AppColor.primary.withOpacity(0.5),
+                                              color: AppColor.primary,
+                                              value: message.probability! / 100,
+                                            ),
                                           ),
                                         )
                                       ],
@@ -148,6 +154,8 @@ class ChatMessage extends StatelessWidget {
                               selectable: true,
                               styleSheet: MarkdownStyleSheet(
                                 p: TextStyle(
+                                  fontSize: 18.sp,
+                                    fontWeight: FontWeight.w300,
                                     color: message.fromUser
                                         ? AppColor.msgUserText
                                         : AppColor.msgBotText),
@@ -169,7 +177,7 @@ class ChatMessage extends StatelessWidget {
                                           fontWeight: FontWeight.bold,
                                           color: message.fromUser
                                               ? AppColor.msgUserText
-                                              : AppColor.msgBotText),
+                                              : AppColor.primary),
                                     ),
                                   ),
                                   SelectableText(
@@ -197,7 +205,7 @@ class ChatMessage extends StatelessWidget {
                                           fontWeight: FontWeight.bold,
                                           color: message.fromUser
                                               ? AppColor.msgUserText
-                                              : AppColor.msgBotText),
+                                              : AppColor.primary),
                                     ),
                                   ),
                                   SelectableText(
@@ -225,7 +233,7 @@ class ChatMessage extends StatelessWidget {
                                           fontWeight: FontWeight.bold,
                                           color: message.fromUser
                                               ? AppColor.msgUserText
-                                              : AppColor.msgBotText),
+                                              : AppColor.primary),
                                     ),
                                   ),
                                   SelectableText(
@@ -239,19 +247,55 @@ class ChatMessage extends StatelessWidget {
                               ),
                             ),
                           if (message.publications != null)
-                            GestureDetector(
-                                onTap: () async {
+                            Container(
+                              width: MediaQuery.of(context).size.width * 1,
+                              // padding:
+                              // EdgeInsets.symmetric(horizontal: 24.w, vertical: 20.h),
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    primary: AppColor.lightGrey,
+                                    shadowColor: Colors.white,
+                                    elevation: 0),
+                                onPressed: () async {
                                   if (await canLaunch(message.publications!)) {
                                     launch(message.publications!);
                                   }
                                 },
-                                child: Text(
-                                  S.of(context).read_more,
-                                  style: const TextStyle(color: AppColor.link),
-                                )),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      S.of(context).read_more,
+                                      style:  TextStyle(color: AppColor.primary,
+                                          fontSize: 15.sp,fontWeight: FontWeight.w600),
+                                    ),
+                                    SizedBox(width: 12.w,),
+                                    Container(
+                                      height: 16.h,
+                                      width: 16.h,
+                                      child: SvgPicture.asset(
+                                          "assets/images/link.svg",
+                                          height: 16.h
+                                        // semanticsLabel: 'Acme Logo'
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              ),
+                            ),
+                            // GestureDetector(
+                            //     onTap: () async {
+                            //       if (await canLaunch(message.publications!)) {
+                            //         launch(message.publications!);
+                            //       }
+                            //     },
+                            //     child: Text(
+                            //       S.of(context).read_more,
+                            //       style: const TextStyle(color: AppColor.link),
+                            //     )),
 
                         ]),
-                    padding: EdgeInsets.fromLTRB(16.sp, 16.sp, 16.sp, 12.sp),
+                    padding: EdgeInsets.fromLTRB(24.w, 16.sp, 24.sp, 12.sp),
                     constraints: boxConstraints,
                     decoration: BoxDecoration(
                         color: message.fromUser
@@ -269,9 +313,9 @@ class ChatMessage extends StatelessWidget {
                                 bottomLeft: Radius.circular(24.sp),
                               )),
                     margin: EdgeInsets.only(
-                        left: message.fromUser ? 0.0 : 10.0,
-                        bottom: 10.0,
-                        right: 10.0)),
+                        left: message.fromUser ? 0.0 : 24.w,
+                        bottom: 24.h,
+                        right: 24.w)),
 
               ],
             )
