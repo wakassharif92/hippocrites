@@ -20,7 +20,7 @@ class Chat extends StatefulWidget {
 
   @override
   _ChatState createState(){
-    print(typeOfChat);
+
     // BlocProvider.of<ChatCubit>(currentc).initChat(typeOfChat);
     return _ChatState();
   }
@@ -29,8 +29,6 @@ class Chat extends StatefulWidget {
 class _ChatState extends State<Chat> {
   @override
   void initState() {
-    print("type");
-    print(widget.typeOfChat);
     BlocProvider.of<ChatCubit>(context).initChat(widget.typeOfChat);
     super.initState();
   }
@@ -44,6 +42,7 @@ class _ChatState extends State<Chat> {
     return BlocBuilder<ChatCubit, ChatState>(
       builder: (c, state) => Column(
         children: [
+
           Expanded(
               child: GestureDetector(
             onTap: () {

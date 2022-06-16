@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hmd_chatbot/models/Message.dart';
+import 'package:hmd_chatbot/models/db/databaseHelper.dart';
 import 'package:hmd_chatbot/services/api/APIFactory.dart';
-import 'package:hmd_chatbot/services/api/APIHandler.dart';
+
 import 'package:hmd_chatbot/services/storage/Storage.dart';
 import 'package:hmd_chatbot/services/storage/StorageFactory.dart';
 
@@ -72,6 +72,9 @@ class ChatCubit extends Cubit<ChatState> {
 
       for (var element in ans.messages) {
         s.saveMessage(message: Message.fromMap(s.lastMessageId + 1, element));
+
+        // await saveMessage(element);
+
       }
       emit(ChatState(
           messages: storageFactory.getStorage().messages,
@@ -80,7 +83,18 @@ class ChatCubit extends Cubit<ChatState> {
           inputType: ans.inputType));
     }
   }
+  Future<void> saveMessage(response) async {
+    final dbHelper = DatabaseHelper.instance;
+    var userData = StorageFactory().getStorage().userData;
+    var userId  = userData?.userID??"";
+    Map<String, dynamic> row = {
+        DatabaseHelper.rh_user_id: userId,
+      DatabaseHelper.rh_description:response!=null?response:""
+    };
 
+    var resp = await dbHelper.insert(DatabaseHelper.tbl_results_history, row);
+    print(resp);
+  }
    _sendHiddenMessage(String message, String? questionType)async{
     var s = storageFactory.getStorage();
     var ans = await apiFactory.getHandler().sendMessage(

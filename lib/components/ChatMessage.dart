@@ -27,11 +27,11 @@ class _ChatMessageState extends State<ChatMessage> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width * 0.85;
-    var boxConstraints = BoxConstraints(maxWidth: width, minWidth: 150.0);
+    var boxConstraints = BoxConstraints(maxWidth: width, minWidth: 0.0);
 
     var maxCharLenOfSingleSlide = 0.0;
     var textMessage = [];
-    if (widget.message.text != null) {
+    if (widget.message.text != null && widget.message.text.toString().contains('\$\$\$')) {
       textMessage = widget.message.text!.split("\$\$\$");
 
       for (var element in textMessage) {
@@ -40,7 +40,10 @@ class _ChatMessageState extends State<ChatMessage> {
         }
       }
       maxCharLenOfSingleSlide = maxCharLenOfSingleSlide / 20;
-    }
+    }else
+      {
+        textMessage.add(widget.message.text.toString());
+      }
 
     if (widget.message.type == Message.SEPARATOR_TYPE) {
       return Container(
@@ -206,7 +209,9 @@ class _ChatMessageState extends State<ChatMessage> {
                   ? Alignment.topRight
                   : Alignment.topLeft),
               child: Container(
-                  child: Column(children: <Widget>[
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
                     if (widget.message.title != null)
                       Padding(
                         padding: EdgeInsets.only(bottom: 10),
@@ -294,7 +299,9 @@ class _ChatMessageState extends State<ChatMessage> {
                     else // message of user
                       Text(
                         textMessage[0],
+                        textAlign: TextAlign.left,
                         style: TextStyle(
+
                             fontSize: 18.sp,
                             fontWeight: FontWeight.w300,
                             color: AppColor.msgUserText),

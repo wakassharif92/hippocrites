@@ -8,12 +8,14 @@ import 'package:hmd_chatbot/bloc/UserDataCubit.dart';
 import 'package:hmd_chatbot/components/Chat.dart';
 import 'package:hmd_chatbot/helpers/AppColor.dart';
 import 'package:hmd_chatbot/helpers/UiHelpers.dart';
+import 'package:hmd_chatbot/models/db/databaseHelper.dart';
 import 'package:hmd_chatbot/pages/home/ProfilePage.dart';
 import 'package:hmd_chatbot/services/api/APIFactory.dart';
 import 'package:hmd_chatbot/services/storage/StorageFactory.dart';
-import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../chatHistory/chatHistory.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -25,9 +27,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool searchMode = false;
   late ItemScrollController itemScrollController;
-  int activeIndex = 1;
+  int activeIndex = 2;
   FocusNode searcFocus = FocusNode();
-
+   final String  MAD="Make a diagnosis";
+   final String  AAQ="Ask a question";
   TextEditingController ctrlSearch = TextEditingController();
 
   @override
@@ -36,8 +39,6 @@ class _HomePageState extends State<HomePage> {
     searcFocus.addListener(() {});
   }
 
-  final PersistentTabController _controller =
-      PersistentTabController(initialIndex: 0);
 
   @override
   Widget build(BuildContext context) {
@@ -139,17 +140,35 @@ class _HomePageState extends State<HomePage> {
                         alignment: Alignment.bottomLeft,
                         child: Padding(
                           padding: EdgeInsets.only(left: 16.w, bottom: 30.h),
-                          child: Text(
-                            (activeIndex == 0)
-                                ? "Info":
-                            (activeIndex == 1)
-                                ? "Diagnosis"
-                                : (activeIndex == 2)
-                                    ? "Ask a question"
-                                    : (activeIndex == 4)
-                                        ? "Account settings"
-                                        : "",
-                            style: Theme.of(context).textTheme.headline4,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                (activeIndex == 0)
+                                    ? "Info":
+                                (activeIndex == 1)
+                                    ? "Diagnosis"
+                                    : (activeIndex == 2)
+                                        ? "Ask a question"
+                                    : (activeIndex == 3)
+                                        ? "Library"
+
+                                        : (activeIndex == 4)
+                                            ? "Account settings"
+                                            : "",
+                                style: Theme.of(context).textTheme.headline4,
+                              ),
+                             if(activeIndex==1||activeIndex==2 ) GestureDetector(
+                                onTap: (){
+                                  BlocProvider.of<ChatCubit>(context).initChat(activeIndex==1?MAD:AAQ);
+                                },
+                                child: Padding(
+
+                                  padding:  EdgeInsets.only(right:15.w,left: 15.w),
+                                  child: Container(child: Icon(Icons.refresh,color: Colors.white,)),
+                                ),
+                              )
+                            ],
                           ),
                         )),
                   ),
@@ -416,7 +435,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   updateActiveTab(index) {
-    print("called");
     setState(() {
       activeIndex = index;
     });
@@ -455,17 +473,28 @@ class _HomePageState extends State<HomePage> {
   Widget _buildScreens(index) {
 
     return [
-      const Center(child: Text("Info comming soon")),
+       Center(child: Column(
+        children: [TextButton(onPressed: (){
+
+          var userData = StorageFactory().getStorage().userData;
+          var userId = userData?.userID ?? "";
+          final dbHelper = DatabaseHelper.instance;
+          dbHelper.deleteRows(DatabaseHelper.tbl_results_history, '${DatabaseHelper.rh_user_id} = ?', userId);
+        }, child: Text("clear db")),
+
+          Text("Info comming soon"),
+        ],
+      )),
       // const Center(child: Text("Info comming soon")),
       Chat(
-        key:ValueKey("456"),
+        key:ValueKey("uniqueKeyMAD"),
           itemScrollController: itemScrollController,
-          typeOfChat: "Make a diagnosis"),
+          typeOfChat: MAD),
       Chat(
-        key:ValueKey("123"),
+        key:ValueKey("uniqueKeyAAQ"),
           itemScrollController: itemScrollController,
-          typeOfChat: "Ask a question"),
-    const   Center(child: Text("History comming soon")),
+          typeOfChat:AAQ),
+      ChatHistory(),
       BlocProvider(
           create: (BuildContext context) => UserDataCubit(
               storageFactory: StorageFactory(), apiFactory: APIFactory()),

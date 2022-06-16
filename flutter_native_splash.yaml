@@ -43,6 +43,7 @@ flutter_native_splash:
   # https://developer.android.com/guide/topics/ui/splash-screen
   # Following are Android 12 specific parameter.
   android_12:
+    image: "assets/images/splash.png"
   # The image parameter sets the splash screen icon image.  If this parameter is not specified,
   # the app's launcher icon will be used instead.
   # Please note that the splash screen will be clipped to a circle on the center of the screen.
@@ -68,7 +69,7 @@ flutter_native_splash:
   # The android, ios and web parameters can be used to disable generating a splash screen on a given
   # platform.
   #android: false
-  #ios: false
+  #ios: true
   #web: false
 
   # The position of the splash image can be set with android_gravity, ios_content_mode, and
@@ -84,7 +85,7 @@ flutter_native_splash:
   # https://developer.apple.com/documentation/uikit/uiview/contentmode): scaleToFill,
   # scaleAspectFit, scaleAspectFill, center, top, bottom, left, right, topLeft, topRight,
   # bottomLeft, or bottomRight.
-  #ios_content_mode: center
+#  ios_content_mode: center
   #
   # web_image_mode can be one of the following modes: center, contain, stretch, and cover.
   #web_image_mode: center
@@ -100,7 +101,7 @@ flutter_native_splash:
   #       To show the notification bar, add the following code to your Flutter app:
   #       WidgetsFlutterBinding.ensureInitialized();
   #       SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom, SystemUiOverlay.top]);
-  #fullscreen: true
+  fullscreen: true
 
   # If you have changed the name(s) of your info.plist file(s), you can specify the filename(s)
   # with the info_plist_files parameter.  Remove only the # characters in the three lines below,

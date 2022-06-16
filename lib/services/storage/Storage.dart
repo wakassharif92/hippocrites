@@ -10,7 +10,7 @@ abstract class Storage{
 
   String? get token;
 
-  UserData? get userData;
+    UserData? get userData;
 
   updateUserData({required UserData userData});
 

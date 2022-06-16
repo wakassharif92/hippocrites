@@ -23,7 +23,7 @@ class DioAPIHandler implements APIHandler {
     Response resp;
     try {
       resp = await dio.post("auth/email/login",
-          data: {"email": email, "password": password});
+          data: {"email": email, "password":password});
       return LogInResponse(200,
           userData: UserData.fromMap(resp.data["data"]["user"]),
           token: resp.data["data"]["token"]["access_token"]);

@@ -35,8 +35,8 @@
 			<string>UIInterfaceOrientationPortrait</string>
 		</array>
 		<key>UIViewControllerBasedStatusBarAppearance</key>
-		<true/>
-		<key>UIStatusBarHidden</key>
 		<false/>
+		<key>UIStatusBarHidden</key>
+		<true/>
 	</dict>
 </plist>
