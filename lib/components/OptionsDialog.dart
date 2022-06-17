@@ -67,16 +67,17 @@ class _OptionsDialogState extends State<OptionsDialog> {
                               decoration: BoxDecoration(
                                 color: widget.selected.contains(e)
                                     ? AppColor.selectOption
-                                    : AppColor.optionBg,
+                                    : Colors.white,
+                                border:  Border.all(color:AppColor.selectOption),
                                 borderRadius: BorderRadius.circular(4.h),
-                                boxShadow: <BoxShadow>[
-                                  BoxShadow(
-                                    color: AppColor.msgSent.withOpacity(0.16),
-                                    blurRadius: 20,
-                                    spreadRadius: 1,
-                                    offset: Offset(0, 5),
-                                  ),
-                                ],
+                                // boxShadow: <BoxShadow>[
+                                //   BoxShadow(
+                                //     color: AppColor.msgSent.withOpacity(0.16),
+                                //     blurRadius: 20,
+                                //     spreadRadius: 1,
+                                //     offset: Offset(0, 5),
+                                //   ),
+                                // ],
                               ),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
@@ -119,7 +120,7 @@ class _OptionsDialogState extends State<OptionsDialog> {
                       .toList(),
                 ),
                 SizedBox(
-                  height: 188.h,
+                  height: 24.h,
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width*1,

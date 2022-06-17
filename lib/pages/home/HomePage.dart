@@ -10,6 +10,7 @@ import 'package:hmd_chatbot/helpers/AppColor.dart';
 import 'package:hmd_chatbot/helpers/UiHelpers.dart';
 import 'package:hmd_chatbot/models/db/databaseHelper.dart';
 import 'package:hmd_chatbot/pages/home/ProfilePage.dart';
+import 'package:hmd_chatbot/pages/home/infoPage.dart';
 import 'package:hmd_chatbot/services/api/APIFactory.dart';
 import 'package:hmd_chatbot/services/storage/StorageFactory.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
@@ -473,18 +474,7 @@ class _HomePageState extends State<HomePage> {
   Widget _buildScreens(index) {
 
     return [
-       Center(child: Column(
-        children: [TextButton(onPressed: (){
-
-          var userData = StorageFactory().getStorage().userData;
-          var userId = userData?.userID ?? "";
-          final dbHelper = DatabaseHelper.instance;
-          dbHelper.deleteRows(DatabaseHelper.tbl_results_history, '${DatabaseHelper.rh_user_id} = ?', userId);
-        }, child: Text("clear db")),
-
-          Text("Info comming soon"),
-        ],
-      )),
+     const  InfoPage(),
       // const Center(child: Text("Info comming soon")),
       Chat(
         key:ValueKey("uniqueKeyMAD"),

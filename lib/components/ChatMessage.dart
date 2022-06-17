@@ -33,13 +33,23 @@ class _ChatMessageState extends State<ChatMessage> {
     var textMessage = [];
     if (widget.message.text != null && widget.message.text.toString().contains('\$\$\$')) {
       textMessage = widget.message.text!.split("\$\$\$");
-
+      int indexOfMaxLineSlide = 0 ;
+      int i = 0 ;
       for (var element in textMessage) {
         if (element.length > maxCharLenOfSingleSlide) {
           maxCharLenOfSingleSlide = double.parse(element.length.toString());
+          indexOfMaxLineSlide = i;
         }
+        i++;
       }
-      maxCharLenOfSingleSlide = maxCharLenOfSingleSlide / 20;
+      final span = TextSpan(text: textMessage[indexOfMaxLineSlide], style: const TextStyle());
+      final tp = TextPainter(text: span); tp.textDirection= TextDirection.ltr;
+      tp.layout(maxWidth: 300.w,);
+
+      final numLines = tp.computeLineMetrics().length;
+
+      maxCharLenOfSingleSlide = double.parse(numLines.toString());
+      // maxCharLenOfSingleSlide = maxCharLenOfSingleSlide / 25;
     }else
       {
         textMessage.add(widget.message.text.toString());
@@ -108,7 +118,7 @@ class _ChatMessageState extends State<ChatMessage> {
                     carouselController: _sliderController,
                     options: CarouselOptions(
                         initialPage: 0,
-                        height: maxCharLenOfSingleSlide * 28.h,
+                        height: maxCharLenOfSingleSlide * 22.h,
                         enableInfiniteScroll: false,
                         // disableCenter: true,
                         padEnds: false,
@@ -151,8 +161,8 @@ class _ChatMessageState extends State<ChatMessage> {
                               selectable: true,
                               styleSheet: MarkdownStyleSheet(
                                 p: TextStyle(
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.w300,
+                                    // fontSize: 18.sp,
+                                    // fontWeight: FontWeight.w300,
                                     color: widget.message.fromUser
                                         ? AppColor.msgUserText
                                         : AppColor.msgBotText),
@@ -248,7 +258,8 @@ class _ChatMessageState extends State<ChatMessage> {
                                         S.of(context).probability,
                                     style: TextStyle(
                                         fontSize: 10.sp,
-                                        fontWeight: FontWeight.w400),
+                                        fontWeight: FontWeight.w400,
+                                    color: widget.message.probability! < 50?AppColor.redText:Colors.black),
                                   ),
                                   Container(
                                     margin: EdgeInsets.only(top: 4.h),
@@ -260,7 +271,7 @@ class _ChatMessageState extends State<ChatMessage> {
                                       child: LinearProgressIndicator(
                                         backgroundColor:
                                             AppColor.primary.withOpacity(0.5),
-                                        color: AppColor.primary,
+                                        color: widget.message.probability! < 50?AppColor.redText:AppColor.primary,
                                         value:
                                             widget.message.probability! / 100,
                                       ),
@@ -288,8 +299,8 @@ class _ChatMessageState extends State<ChatMessage> {
                         selectable: true,
                         styleSheet: MarkdownStyleSheet(
                           p: TextStyle(
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.w300,
+                              // fontSize: 16.sp,
+                              // fontWeight: FontWeight.w300,
                               color: widget.message.fromUser
                                   ? AppColor.msgUserText
                                   : AppColor.msgBotText),
@@ -302,8 +313,8 @@ class _ChatMessageState extends State<ChatMessage> {
                         textAlign: TextAlign.left,
                         style: TextStyle(
 
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.w300,
+                            // fontSize: 16.sp,
+                            // fontWeight: FontWeight.w300,
                             color: AppColor.msgUserText),
                       ),
                     if (widget.message.description != null)

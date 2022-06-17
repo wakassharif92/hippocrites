@@ -26,6 +26,7 @@ class ChatState {
 }
 
 class ChatCubit extends Cubit<ChatState> {
+
   ChatCubit({required this.storageFactory, required this.apiFactory})
       : super(ChatState(
           messages: storageFactory.getStorage().messages,

@@ -6,20 +6,20 @@
                 {
                     "source": "/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/res/values-v31/styles.xml",
                     "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "173,821",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "470,985"
+                        "startLines": "3,-1",
+                        "startColumns": "4,-1",
+                        "startOffsets": "173,-1",
+                        "endLines": "8,-1",
+                        "endColumns": "12,-1",
+                        "endOffsets": "562,-1"
                     },
                     "to": {
-                        "startLines": "2,7",
+                        "startLines": "2,8",
                         "startColumns": "4,4",
-                        "startOffsets": "55,357",
-                        "endLines": "6,9",
+                        "startOffsets": "55,449",
+                        "endLines": "7,10",
                         "endColumns": "12,12",
-                        "endOffsets": "352,521"
+                        "endOffsets": "444,613"
                     }
                 }
             ]

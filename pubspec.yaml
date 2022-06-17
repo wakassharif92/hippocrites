@@ -53,7 +53,7 @@ dependencies:
   dio: ^4.0.4
   global_configuration: ^2.0.0-nullsafety.1
   scrollable_positioned_list: ^0.2.3
-  flutter_markdown: ^0.6.9
+  flutter_markdown: ^0.6.10
   percent_indicator: ^4.0.0
   url_launcher: ^6.0.18
   flutter_screenutil: ^5.5.3+1
