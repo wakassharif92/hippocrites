@@ -1,0 +1,119 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="care.hmd.app"
+4    android:versionCode="6"
+5    android:versionName="1.0.4" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="19"
+8-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:3:5-66
+11-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:3:22-64
+12
+13    <queries>
+13-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:36:5-42:15
+14
+15        <!-- If your app opens https URLs -->
+16        <intent>
+16-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:38:9-41:18
+17            <action android:name="android.intent.action.VIEW" />
+17-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:39:13-65
+17-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:39:21-62
+18
+19            <data android:scheme="https" />
+19-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:40:13-44
+19-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:40:19-41
+20        </intent>
+21    </queries>
+22
+23    <application
+24        android:name="android.app.Application"
+24-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:6:9-42
+25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+25-->[androidx.core:core:1.6.0] /Users/macbook/.gradle/caches/transforms-2/files-2.1/bf57ee6ef03cef43525091c12acf6534/core-1.6.0/AndroidManifest.xml:24:18-86
+26        android:icon="@mipmap/ic_launcher"
+26-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:7:9-43
+27        android:label="Hippocrates" >
+27-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:5:9-36
+28        <activity
+28-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:8:9-29:20
+29            android:name="care.hmd.app.MainActivity"
+29-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:9:13-41
+30            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+30-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:13:13-163
+31            android:exported="true"
+31-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:10:13-36
+32            android:hardwareAccelerated="true"
+32-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:14:13-47
+33            android:launchMode="singleTop"
+33-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:11:13-43
+34            android:screenOrientation="portrait"
+34-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:16:13-49
+35            android:theme="@style/LaunchTheme"
+35-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:12:13-47
+36            android:windowSoftInputMode="adjustResize" >
+36-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:15:13-55
+37
+38            <!--
+39                 Specifies an Android theme to apply to this Activity as soon as
+40                 the Android process has started. This theme is visible to the user
+41                 while the Flutter UI initializes. After that, this theme continues
+42                 to determine the Window background behind the Flutter UI.
+43            -->
+44            <meta-data
+44-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:21:13-24:17
+45                android:name="io.flutter.embedding.android.NormalTheme"
+45-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:22:15-70
+46                android:resource="@style/NormalTheme" />
+46-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:23:15-52
+47
+48            <intent-filter>
+48-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:25:13-28:29
+49                <action android:name="android.intent.action.MAIN" />
+49-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:26:17-68
+49-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:26:25-66
+50
+51                <category android:name="android.intent.category.LAUNCHER" />
+51-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:27:17-76
+51-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:27:27-74
+52            </intent-filter>
+53        </activity>
+54        <!--
+55             Don't delete the meta-data below.
+56             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+57        -->
+58        <meta-data
+58-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:32:9-34:33
+59            android:name="flutterEmbedding"
+59-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:33:13-44
+60            android:value="2" />
+60-->/Users/macbook/Desktop/project/waqas/hmd_care/android/app/src/main/AndroidManifest.xml:34:13-30
+61
+62        <activity
+62-->[:url_launcher_android] /Users/macbook/Desktop/project/waqas/hmd_care/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:8:9-11:74
+63            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+63-->[:url_launcher_android] /Users/macbook/Desktop/project/waqas/hmd_care/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:9:13-74
+64            android:exported="false"
+64-->[:url_launcher_android] /Users/macbook/Desktop/project/waqas/hmd_care/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:10:13-37
+65            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+65-->[:url_launcher_android] /Users/macbook/Desktop/project/waqas/hmd_care/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:11:13-71
+66
+67        <uses-library
+67-->[androidx.window:window:1.0.0-beta04] /Users/macbook/.gradle/caches/transforms-2/files-2.1/4ae8db8808990911ffb0cc1d905648d2/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+68            android:name="androidx.window.extensions"
+68-->[androidx.window:window:1.0.0-beta04] /Users/macbook/.gradle/caches/transforms-2/files-2.1/4ae8db8808990911ffb0cc1d905648d2/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+69            android:required="false" />
+69-->[androidx.window:window:1.0.0-beta04] /Users/macbook/.gradle/caches/transforms-2/files-2.1/4ae8db8808990911ffb0cc1d905648d2/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+70        <uses-library
+70-->[androidx.window:window:1.0.0-beta04] /Users/macbook/.gradle/caches/transforms-2/files-2.1/4ae8db8808990911ffb0cc1d905648d2/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+71            android:name="androidx.window.sidecar"
+71-->[androidx.window:window:1.0.0-beta04] /Users/macbook/.gradle/caches/transforms-2/files-2.1/4ae8db8808990911ffb0cc1d905648d2/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+72            android:required="false" />
+72-->[androidx.window:window:1.0.0-beta04] /Users/macbook/.gradle/caches/transforms-2/files-2.1/4ae8db8808990911ffb0cc1d905648d2/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+73    </application>
+74
+75</manifest>

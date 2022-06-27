@@ -1,0 +1,4 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+care/hmd/app/BuildConfig.java
+ care.hmd.app.BuildConfig
