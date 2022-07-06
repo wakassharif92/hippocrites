@@ -732,8 +732,8 @@ com.google.common.util.concurrent.AbstractFuture:
     protected boolean setFuture(com.google.common.util.concurrent.ListenableFuture)
     final void maybePropagateCancellationTo(java.util.concurrent.Future)
     private static final long SPIN_THRESHOLD_NANOS
-org.checkerframework.checker.nullness.compatqual.NonNullDecl
 javax.annotation.WillNotClose
+org.checkerframework.checker.nullness.compatqual.NonNullDecl
 io.flutter.plugins.pathprovider.BuildConfig
 com.google.common.util.concurrent.TimeoutFuture$1
 com.jrai.flutter_keyboard_visibility.R$integer
@@ -1850,8 +1850,8 @@ com.google.common.collect.ImmutableSet
 com.google.common.cache.CacheBuilder$3
 com.google.common.base.FinalizableReferenceQueue$FinalizerLoader
 com.google.common.reflect.Types$GenericArrayTypeImpl
-kotlinx.coroutines.AwaitAll$AwaitAllNode
 kotlinx.coroutines.flow.SharedFlowImpl$WhenMappings
+kotlinx.coroutines.AwaitAll$AwaitAllNode
 javax.annotation.Nonnegative$Checker
 javax.annotation.WillClose
 kotlinx.coroutines.flow.FlowKt__TransformKt$mapNotNull$$inlined$unsafeTransform$1$1
@@ -4770,9 +4770,9 @@ kotlin.sequences.GeneratorSequence
 kotlin.sequences.SequencesKt__SequenceBuilderKt$sequence$$inlined$Sequence$1
 androidx.customview.widget.ExploreByTouchHelper
 androidx.annotation.CheckResult
-io.flutter.embedding.engine.systemchannels.PlatformViewsChannel:
-    private static final java.lang.String TAG
 io.flutter.embedding.engine.systemchannels.PlatformChannel:
+    private static final java.lang.String TAG
+io.flutter.embedding.engine.systemchannels.PlatformViewsChannel:
     private static final java.lang.String TAG
 kotlinx.coroutines.flow.FlowKt__ReduceKt$single$$inlined$collect$1
 kotlin.Suppress
@@ -8345,8 +8345,8 @@ androidx.core.app.ActivityCompat$RequestPermissionsRequestCodeValidator
 com.google.common.collect.ForwardingCollection
 com.google.common.util.concurrent.CycleDetectingLockFactory$CycleDetectingReentrantLock
 com.google.common.base.Functions$FunctionForMapNoDefault
-kotlinx.coroutines.test.TestCoroutineContext
 kotlinx.coroutines.Delay
+kotlinx.coroutines.test.TestCoroutineContext
 com.google.common.eventbus.package-info
 com.google.common.collect.MapMakerInternalMap$StrongKeyWeakValueEntry$Helper
 com.google.common.cache.LocalCache$AccessQueue$2

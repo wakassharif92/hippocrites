@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/macbook/Desktop/project/waqas/hmd_care/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-gl/values-gl.xml",
+            "outputFile": "/Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-gl/values-gl.xml",
             "map": [
                 {
-                    "source": "/Users/macbook/.gradle/caches/transforms-2/files-2.1/bf57ee6ef03cef43525091c12acf6534/core-1.6.0/res/values-gl/values-gl.xml",
+                    "source": "/Users/wakassharif/.gradle/caches/transforms-3/8b1c00e77dbc5812cae1c2ac6440ac43/transformed/core-1.6.0/res/values-gl/values-gl.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

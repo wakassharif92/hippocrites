@@ -74,7 +74,7 @@ abstract class APIHandler {
       required String message,
       String? questionType});
 
-  Future<MessageResponse> initChat({
+  Future<MessageResponse>   initChat({
     required String token,
     required UserData userData,
   });

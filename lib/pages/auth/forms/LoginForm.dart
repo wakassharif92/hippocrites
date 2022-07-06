@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -28,6 +31,8 @@ class _LoginFormState extends State<LoginForm> {
   final TextEditingController _passwordController = TextEditingController();
   String? errorMessage;
   bool formError = false;
+  bool _isLoading=false;
+
 
   final _formKey = GlobalKey<FormState>();
   bool hidePassword = true;
@@ -130,7 +135,11 @@ class _LoginFormState extends State<LoginForm> {
                 decoration: getButtonDecoration(),
                 child: ElevatedButton(
                   onPressed: _onLoginButtonPressed,
-                  child: Text(S.of(context).login),
+                  child: _isLoading? const SizedBox(
+                      height: 16.0,
+                      width: 16.0,
+                      child: CircularProgressIndicator(backgroundColor: Colors.white, strokeWidth: 2.0)): Text(
+    S.of(context).login),
                 ),
               ),
             ),
@@ -170,6 +179,11 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   void _onLoginButtonPressed() async {
+    setState(() {
+      _isLoading=true;
+    });
+    //await Future.delayed(const Duration(seconds: 3));
+
     if (!_formKey.currentState!.validate()) {
       return;
     }
@@ -180,15 +194,28 @@ class _LoginFormState extends State<LoginForm> {
       });
     }
 
-    String? error = await BlocProvider.of<AuthCubit>(context, listen: false)
-        .logIn(
-            email: _emailController.text.toLowerCase(),
-            password: _passwordController.text);
-    if (error != null) {
+    try {
+      String? error = await BlocProvider.of<AuthCubit>(context, listen: false)
+              .logIn(
+                  email: _emailController.text.toLowerCase(),
+                  password: _passwordController.text);
+
+      if (error != null) {
+            setState(() {
+              errorMessage = error;
+            });
+          }
       setState(() {
-        errorMessage = error;
+            _isLoading=false;
+          });
+    } catch (e) {
+  errorMessage='try again';
+
+      setState(() {
+        _isLoading=false;
       });
-    }
+      print(e);
+    } finally {}
   }
    signupButtonPress(BuildContext context){
     Navigator.of(context).push( MaterialPageRoute(builder: (context) =>   BlocProvider(

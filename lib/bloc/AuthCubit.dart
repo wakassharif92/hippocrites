@@ -20,6 +20,7 @@ class AuthCubit extends Cubit<bool> {
     var res = await apiFactory
         .getHandler()
         .logIn(email: email, password: password);
+
     if (res.httpStatus != 200) {
       return res.error ?? "an error occurred";
     } else {

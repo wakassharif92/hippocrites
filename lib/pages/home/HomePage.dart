@@ -29,9 +29,10 @@ class _HomePageState extends State<HomePage> {
   bool searchMode = false;
   late ItemScrollController itemScrollController;
   int activeIndex = 2;
+  bool _isLoading = false;
   FocusNode searcFocus = FocusNode();
-   final String  MAD="Make a diagnosis";
-   final String  AAQ="Ask a question";
+  final String MAD = "Make a diagnosis";
+  String AAQ = "Ask a question";
   TextEditingController ctrlSearch = TextEditingController();
 
   @override
@@ -40,89 +41,11 @@ class _HomePageState extends State<HomePage> {
     searcFocus.addListener(() {});
   }
 
-
   @override
   Widget build(BuildContext context) {
     return KeyboardVisibilityBuilder(
       builder: (context, isKeyboardVisible) => Scaffold(
           backgroundColor: AppColor.chatBg,
-
-          // appBar:AppBar(
-          //   backgroundColor: AppColor.primary,
-          //   title: searchMode
-          //       ? TextField(
-          //           cursorColor: AppColor.searchText,
-          //           onChanged: (s) {
-          //             int? id = BlocProvider.of<ChatCubit>(context).findMessage(s);
-          //             if (id != null) {
-          //               itemScrollController.scrollTo(
-          //                   index: id, duration: Duration(milliseconds: 300));
-          //             }
-          //           },
-          //           style: TextStyle(color: AppColor.searchText),
-          //           decoration: InputDecoration.collapsed(
-          //             hintText: S.of(context).search,
-          //             hintStyle: TextStyle(color: AppColor.searchText),
-          //           ))
-          //       : Image.asset(
-          //           "assets/images/Hippocrates.png",
-          //           width: 150,
-          //         ),
-          //   actions: [
-          //     IconButton(
-          //         icon: Icon(searchMode ? Icons.clear : Icons.search),
-          //         onPressed: () {
-          //           setState(() {
-          //             searchMode = !searchMode;
-          //           });
-          //         }),
-          //     PopupMenuButton<String>(
-          //       onSelected: (s) {
-          //         switch (s) {
-          //           case "logout":
-          //             BlocProvider.of<AuthCubit>(context).logOut();
-          //             break;
-          //           case "start_over":
-          //             BlocProvider.of<ChatCubit>(context).initChat();
-          //             break;
-          //           case "profile":
-          //             Navigator.of(context).push(MaterialPageRoute(
-          //                 builder: (c) => BlocProvider(
-          //                     create: (BuildContext context) => UserDataCubit(
-          //                         storageFactory: StorageFactory(),
-          //                         apiFactory: APIFactory()),
-          //                     child: const ProfilePage())));
-          //             break;
-          //         }
-          //       },
-          //       itemBuilder: (context) {
-          //         return [
-          //            PopupMenuItem(
-          //             value: "profile",
-          //             child: Padding(
-          //               padding: EdgeInsets.only(right: 20),
-          //               child: Text(S.of(context).profile),
-          //             ),
-          //           ),
-          //            PopupMenuItem(
-          //             value: "start_over",
-          //             child: Padding(
-          //               padding: EdgeInsets.only(right: 20),
-          //               child: Text(S.of(context).start_over),
-          //             ),
-          //           ),
-          //            PopupMenuItem(
-          //             value: "logout",
-          //             child: Padding(
-          //               padding: EdgeInsets.only(right: 20),
-          //               child: Text(S.of(context).logout),
-          //             ),
-          //           ),
-          //         ];
-          //       },
-          //     )
-          //   ],
-          // ),
           body: Container(
             color: Theme.of(context).scaffoldBackgroundColor,
             child: Stack(
@@ -146,29 +69,35 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Text(
                                 (activeIndex == 0)
-                                    ? "Info":
-                                (activeIndex == 1)
-                                    ? "Diagnosis"
-                                    : (activeIndex == 2)
-                                        ? "Ask a question"
-                                    : (activeIndex == 3)
-                                        ? "Library"
-
-                                        : (activeIndex == 4)
-                                            ? "Account settings"
-                                            : "",
+                                    ? "Info"
+                                    : (activeIndex == 1)
+                                        ? "Diagnosis"
+                                        : (activeIndex == 2)
+                                            ? "Ask a question"
+                                            : (activeIndex == 3)
+                                                ? "Library"
+                                                : (activeIndex == 4)
+                                                    ? "Account settings"
+                                                    : "",
                                 style: Theme.of(context).textTheme.headline4,
                               ),
-                             if(activeIndex==1||activeIndex==2 ) GestureDetector(
-                                onTap: (){
-                                  BlocProvider.of<ChatCubit>(context).initChat(activeIndex==1?MAD:AAQ);
-                                },
-                                child: Padding(
-
-                                  padding:  EdgeInsets.only(right:15.w,left: 15.w),
-                                  child: Container(child: Icon(Icons.refresh,color: Colors.white,)),
-                                ),
-                              )
+                              if (activeIndex == 1 || activeIndex == 2)
+                                GestureDetector(
+                                  onTap: () {
+                                    BlocProvider.of<ChatCubit>(context)
+                                        .initChat(activeIndex == 1 ? MAD : AAQ);
+                                  },
+                                  child: Padding(
+                                    padding: EdgeInsets.only(
+                                        right: 15.w, left: 15.w),
+                                    //child: Container(child: Icon(Icons.refresh,color: Colors.white,)),
+                                    child: Container(
+                                        child: const Text(
+                                      'Start Over',
+                                      style: TextStyle(color: Colors.white),
+                                    )),
+                                  ),
+                                )
                             ],
                           ),
                         )),
@@ -356,7 +285,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     )
                 ]),
-                if (activeIndex == 2 || activeIndex==1)
+                if (activeIndex == 2 || activeIndex == 1)
                   Container(
                     height: 48.h,
                     decoration: BoxDecoration(
@@ -473,23 +402,24 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildScreens(index) {
 
-    return [
-     const  InfoPage(),
+    var a = [
+      const InfoPage(),
       // const Center(child: Text("Info comming soon")),
       Chat(
-        key:ValueKey("uniqueKeyMAD"),
+          key: ValueKey("uniqueKeyMAD"),
           itemScrollController: itemScrollController,
           typeOfChat: MAD),
       Chat(
-        key:ValueKey("uniqueKeyAAQ"),
+          key: ValueKey("uniqueKeyAAQ"),
           itemScrollController: itemScrollController,
-          typeOfChat:AAQ),
+          typeOfChat: AAQ),
       ChatHistory(),
       BlocProvider(
           create: (BuildContext context) => UserDataCubit(
               storageFactory: StorageFactory(), apiFactory: APIFactory()),
           child: const ProfilePage())
     ].elementAt(index);
+    return a;
   }
 
   @override

@@ -27,6 +27,7 @@ class Chat extends StatefulWidget {
 }
 
 class _ChatState extends State<Chat> {
+  bool _isLoading=false;
   @override
   void initState() {
     BlocProvider.of<ChatCubit>(context).initChat(widget.typeOfChat);
@@ -39,7 +40,7 @@ class _ChatState extends State<Chat> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ChatCubit, ChatState>(
+    return  BlocBuilder<ChatCubit, ChatState>(
       builder: (c, state) => Column(
         children: [
 
@@ -171,11 +172,10 @@ class _ChatState extends State<Chat> {
                     onPressed: selectedOptions.isEmpty
                         ? null
                         : () {
+
                             BlocProvider.of<ChatCubit>(context)
                                 .sendMessage(selectedOptions.join(", "));
-                            setState(() {
-                              selectedOptions = [];
-                            });
+
                           },
                     icon: Container(
                       // padding: EdgeInsets.only(right: 24.w),
@@ -227,10 +227,12 @@ class _ChatState extends State<Chat> {
                           decoration: TextDecoration.none),
                       controller: _messageController,
                       onSubmitted: (s) {
+
                         if (s.trim().isEmpty) return;
                         setState(() {
                           _messageController.text = "";
                           BlocProvider.of<ChatCubit>(context).sendMessage(s);
+
                         });
                       },
                       decoration: InputDecoration(
@@ -251,11 +253,23 @@ class _ChatState extends State<Chat> {
                   color: Colors.white,
                   child: GestureDetector(
                     onTap: () {
+
                       String s = _messageController.text;
                       if (s.trim().isEmpty) return;
                       setState(() {
                         _messageController.text = "";
-                        BlocProvider.of<ChatCubit>(context).sendMessage(s);
+                        try {
+
+               var e= BlocProvider.of<ChatCubit>(context).sendMessage(s);
+                          print(e);
+
+                        }
+                        catch (e) {
+                          print(e);
+                        } finally {
+
+                        }
+
                       });
                     },
                     child: Container(

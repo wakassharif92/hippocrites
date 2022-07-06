@@ -109,7 +109,9 @@ class ChatCubit extends Cubit<ChatState> {
   String _dateFormat(DateTime d)=>"${d.year}-${d.month<10?"0":""}${d.month}-${d.day<10?"0":""}${d.day}";
 
   initChat(String typeOfChat) async {
+
     var s = storageFactory.getStorage();
+
     var ans = await apiFactory
         .getHandler()
         .initChat(token: s.token!, userData: s.userData!);
