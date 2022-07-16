@@ -12,22 +12,22 @@
 12         to allow setting breakpoints, to provide hot reload, etc.
 13    -->
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->/Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:3:5-66
-14-->/Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:3:22-64
+14-->/Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:3:5-66
+14-->/Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:3:22-64
 15
 16    <queries>
-16-->/Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:36:5-42:15
+16-->/Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:36:5-42:15
 17
 18        <!-- If your app opens https URLs -->
 19        <intent>
-19-->/Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:38:9-41:18
+19-->/Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:38:9-41:18
 20            <action android:name="android.intent.action.VIEW" />
-20-->/Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:39:13-65
-20-->/Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:39:21-62
+20-->/Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:39:13-65
+20-->/Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:39:21-62
 21
 22            <data android:scheme="https" />
-22-->/Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:40:13-44
-22-->/Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:40:19-41
+22-->/Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:40:13-44
+22-->/Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:40:19-41
 23        </intent>
 24    </queries>
 25
@@ -73,13 +73,13 @@
 64            android:value="2" />
 65
 66        <activity
-66-->[:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-11:74
+66-->[:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-11:74
 67            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-67-->[:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-74
+67-->[:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-74
 68            android:exported="false"
-68-->[:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:10:13-37
+68-->[:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:10:13-37
 69            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-69-->[:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-71
+69-->[:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-71
 70
 71        <uses-library
 71-->[androidx.window:window:1.0.0-beta04] /Users/wakassharif/.gradle/caches/transforms-3/a424c3dcb70b1168132b8f5c445ac2e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40

@@ -1,26 +1,26 @@
 [
     {
-        "merged": "/Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/url_launcher_android/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
+        "merged": "/Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/url_launcher_android/intermediates/res/merged/debug/layout/notification_action.xml",
+        "source": "/Users/wakassharif/.gradle/caches/transforms-3/8b1c00e77dbc5812cae1c2ac6440ac43/transformed/core-1.6.0/res/layout/notification_action.xml"
+    },
+    {
+        "merged": "/Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/url_launcher_android/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
         "source": "/Users/wakassharif/.gradle/caches/transforms-3/8b1c00e77dbc5812cae1c2ac6440ac43/transformed/core-1.6.0/res/layout/notification_action_tombstone.xml"
     },
     {
-        "merged": "/Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/url_launcher_android/intermediates/res/merged/debug/layout/notification_template_icon_group.xml",
-        "source": "/Users/wakassharif/.gradle/caches/transforms-3/8b1c00e77dbc5812cae1c2ac6440ac43/transformed/core-1.6.0/res/layout/notification_template_icon_group.xml"
-    },
-    {
-        "merged": "/Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/url_launcher_android/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
-        "source": "/Users/wakassharif/.gradle/caches/transforms-3/8b1c00e77dbc5812cae1c2ac6440ac43/transformed/core-1.6.0/res/layout/notification_template_part_chronometer.xml"
-    },
-    {
-        "merged": "/Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/url_launcher_android/intermediates/res/merged/debug/layout/custom_dialog.xml",
-        "source": "/Users/wakassharif/.gradle/caches/transforms-3/8b1c00e77dbc5812cae1c2ac6440ac43/transformed/core-1.6.0/res/layout/custom_dialog.xml"
-    },
-    {
-        "merged": "/Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/url_launcher_android/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
+        "merged": "/Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/url_launcher_android/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
         "source": "/Users/wakassharif/.gradle/caches/transforms-3/8b1c00e77dbc5812cae1c2ac6440ac43/transformed/core-1.6.0/res/layout/notification_template_part_time.xml"
     },
     {
-        "merged": "/Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/url_launcher_android/intermediates/res/merged/debug/layout/notification_action.xml",
-        "source": "/Users/wakassharif/.gradle/caches/transforms-3/8b1c00e77dbc5812cae1c2ac6440ac43/transformed/core-1.6.0/res/layout/notification_action.xml"
+        "merged": "/Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/url_launcher_android/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
+        "source": "/Users/wakassharif/.gradle/caches/transforms-3/8b1c00e77dbc5812cae1c2ac6440ac43/transformed/core-1.6.0/res/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "/Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/url_launcher_android/intermediates/res/merged/debug/layout/notification_template_icon_group.xml",
+        "source": "/Users/wakassharif/.gradle/caches/transforms-3/8b1c00e77dbc5812cae1c2ac6440ac43/transformed/core-1.6.0/res/layout/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/url_launcher_android/intermediates/res/merged/debug/layout/custom_dialog.xml",
+        "source": "/Users/wakassharif/.gradle/caches/transforms-3/8b1c00e77dbc5812cae1c2ac6440ac43/transformed/core-1.6.0/res/layout/custom_dialog.xml"
     }
 ]

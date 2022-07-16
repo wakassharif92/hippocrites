@@ -1,8 +1,8 @@
 -- Merging decision tree log ---
 application
-INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:4:4-35:19
-MERGED from [:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-12:19
-MERGED from [:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-12:19
+INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:4:4-35:19
+MERGED from [:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-12:19
+MERGED from [:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-12:19
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/wakassharif/.gradle/caches/transforms-3/a424c3dcb70b1168132b8f5c445ac2e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:24:5-31:19
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/wakassharif/.gradle/caches/transforms-3/a424c3dcb70b1168132b8f5c445ac2e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:24:5-31:19
 MERGED from [androidx.core:core:1.6.0] /Users/wakassharif/.gradle/caches/transforms-3/8b1c00e77dbc5812cae1c2ac6440ac43/transformed/core-1.6.0/AndroidManifest.xml:24:5-89
@@ -12,19 +12,19 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/waka
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.6.0] /Users/wakassharif/.gradle/caches/transforms-3/8b1c00e77dbc5812cae1c2ac6440ac43/transformed/core-1.6.0/AndroidManifest.xml:24:18-86
 	android:name
-		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml
 manifest
-ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:1:1-43:12
-INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:1:1-43:12
-INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:1:1-43:12
-INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:1:1-43:12
-MERGED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:1:1-43:12
-MERGED from [:sqflite] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:flutter_keyboard_visibility] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/flutter_keyboard_visibility/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-14:12
-MERGED from [:path_provider_android] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/path_provider_android/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:flutter_native_splash] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/flutter_native_splash/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:webview_flutter_android] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/webview_flutter_android/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:1:1-43:12
+INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:1:1-43:12
+INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:1:1-43:12
+INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:1:1-43:12
+MERGED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:1:1-43:12
+MERGED from [:sqflite] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:flutter_keyboard_visibility] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/flutter_keyboard_visibility/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-14:12
+MERGED from [:path_provider_android] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/path_provider_android/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:flutter_native_splash] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/flutter_native_splash/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:webview_flutter_android] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/webview_flutter_android/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/wakassharif/.gradle/caches/transforms-3/491ec50d96cf748f95c0eef9e51740fa/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/wakassharif/.gradle/caches/transforms-3/a424c3dcb70b1168132b8f5c445ac2e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.webkit:webkit:1.0.0] /Users/wakassharif/.gradle/caches/transforms-3/09d6e5c7d286999c2a6712d00c0de3d9/transformed/webkit-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -43,57 +43,57 @@ MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/wakassharif/.gradle/c
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/wakassharif/.gradle/caches/transforms-3/3564ca7bb9e0b62a619f0e7566da09e0/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/wakassharif/.gradle/caches/transforms-3/7a001e7dfa99864328a2c6910b13f08d/transformed/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/wakassharif/.gradle/caches/transforms-3/5b1e8eb21dd842e67d7232cf43e4c5e9/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:17:1-24:12
-INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/debug/AndroidManifest.xml:1:1-7:12
-INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/debug/AndroidManifest.xml:1:1-7:12
-INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/debug/AndroidManifest.xml:1:1-7:12
 	package
-		ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:2:5-27
-		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/debug/AndroidManifest.xml
+		ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:2:5-27
+		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/debug/AndroidManifest.xml
 	android:versionName
-		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:1:1-43:12
-		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:1:1-43:12
+		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/debug/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:1:1-43:12
-		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:1:1-43:12
+		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/debug/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:1:11-69
+		ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
-ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:3:5-66
-MERGED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:3:5-66
-MERGED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:3:5-66
+ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:3:5-66
+MERGED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:3:5-66
+MERGED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:3:5-66
 	android:name
-		ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:3:22-64
+		ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:3:22-64
 queries
-ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:36:5-42:15
+ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:36:5-42:15
 intent#action:name:android.intent.action.VIEW+data:scheme:https
-ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:38:9-41:18
+ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:38:9-41:18
 action#android.intent.action.VIEW
-ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:39:13-65
+ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:39:13-65
 	android:name
-		ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:39:21-62
+		ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:39:21-62
 data
-ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:40:13-44
+ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:40:13-44
 	android:scheme
-		ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml:40:19-41
+		ADDED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml:40:19-41
 uses-sdk
-INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml
-INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml
-MERGED from [:sqflite] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:sqflite] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:flutter_keyboard_visibility] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/flutter_keyboard_visibility/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:flutter_keyboard_visibility] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/flutter_keyboard_visibility/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:path_provider_android] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/path_provider_android/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:path_provider_android] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/path_provider_android/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:flutter_native_splash] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/flutter_native_splash/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:flutter_native_splash] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/flutter_native_splash/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:webview_flutter_android] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/webview_flutter_android/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:webview_flutter_android] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/webview_flutter_android/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml
+MERGED from [:sqflite] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:sqflite] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_keyboard_visibility] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/flutter_keyboard_visibility/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_keyboard_visibility] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/flutter_keyboard_visibility/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/path_provider_android/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/path_provider_android/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_native_splash] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/flutter_native_splash/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_native_splash] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/flutter_native_splash/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:webview_flutter_android] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/webview_flutter_android/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:webview_flutter_android] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/webview_flutter_android/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/wakassharif/.gradle/caches/transforms-3/491ec50d96cf748f95c0eef9e51740fa/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/wakassharif/.gradle/caches/transforms-3/491ec50d96cf748f95c0eef9e51740fa/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/wakassharif/.gradle/caches/transforms-3/a424c3dcb70b1168132b8f5c445ac2e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:20:5-22:41
@@ -130,22 +130,22 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/wakassharif/.g
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/wakassharif/.gradle/caches/transforms-3/7a001e7dfa99864328a2c6910b13f08d/transformed/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/wakassharif/.gradle/caches/transforms-3/5b1e8eb21dd842e67d7232cf43e4c5e9/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/wakassharif/.gradle/caches/transforms-3/5b1e8eb21dd842e67d7232cf43e4c5e9/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
-INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/debug/AndroidManifest.xml
-INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/debug/AndroidManifest.xml
+INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/debug/AndroidManifest.xml
+INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/debug/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/debug/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/android/app/src/debug/AndroidManifest.xml
 activity#io.flutter.plugins.urllauncher.WebViewActivity
-ADDED from [:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-11:74
+ADDED from [:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-11:74
 	android:exported
-		ADDED from [:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:10:13-37
+		ADDED from [:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:10:13-37
 	android:theme
-		ADDED from [:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-71
+		ADDED from [:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-71
 	android:name
-		ADDED from [:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-74
+		ADDED from [:url_launcher_android] /Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-74
 uses-library#androidx.window.extensions
 ADDED from [androidx.window:window:1.0.0-beta04] /Users/wakassharif/.gradle/caches/transforms-3/a424c3dcb70b1168132b8f5c445ac2e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
 	android:required

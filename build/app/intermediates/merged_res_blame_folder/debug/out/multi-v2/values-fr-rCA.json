@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/wakassharif/Documents/Flutter Personal/hippocrites/hmd_care/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-fr-rCA/values-fr-rCA.xml",
+            "outputFile": "/Users/wakassharif/Documents/Flutter Personal/hippocritesV2/hmd/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-fr-rCA/values-fr-rCA.xml",
             "map": [
                 {
                     "source": "/Users/wakassharif/.gradle/caches/transforms-3/8b1c00e77dbc5812cae1c2ac6440ac43/transformed/core-1.6.0/res/values-fr-rCA/values-fr-rCA.xml",
