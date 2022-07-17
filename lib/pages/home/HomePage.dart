@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                                     //child: Container(child: Icon(Icons.refresh,color: Colors.white,)),
                                     child: Container(
                                         child: const Text(
-                                      'Start Over',
+                                      'Clear History',
                                       style: TextStyle(color: Colors.white),
                                     )),
                                   ),
@@ -152,65 +152,15 @@ class _HomePageState extends State<HomePage> {
                               // ),
                               //
                               InkWell(
-                                  child: Container(
-                                    width: 90.w,
-                                    child: Column(
-                                      children: [
-                                        Stack(
-                                          children: [
-                                            Container(
-                                              width: 72.w,
-                                              height: 40.h,
-                                              decoration: BoxDecoration(
-                                                color: AppColor.primary,
-                                                borderRadius:
-                                                    BorderRadius.circular(14.h),
-                                                boxShadow: <BoxShadow>[
-                                                  BoxShadow(
-                                                    color: AppColor.primary
-                                                        .withOpacity(0.3),
-                                                    blurRadius: 20,
-                                                    spreadRadius: 5,
-                                                    offset: Offset(0, 10),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            Positioned.fill(
-                                              child: Align(
-                                                child: Container(
-                                                  height: 24.h,
-                                                  width: 24.h,
-                                                  child: SvgPicture.asset(
-                                                      "assets/images/nav/3.svg",
-                                                      height: 24.h
-                                                      // semanticsLabel: 'Acme Logo'
-                                                      ),
-                                                ),
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          height: 4.h,
-                                        ),
-                                        Text(
-                                          "Ask a question",
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .headline5,
-                                        )
-                                      ],
-                                    ),
-                                  ),
+                                  child: getNavIcon(2,false, 'Ask a Question'),
                                   onTap: () {
                                     updateActiveTab(2);
                                   }),
-                              InkWell(
-                                  child: getNavIcon(3, false, "Library"),
-                                  onTap: () {
-                                    updateActiveTab(3);
-                                  }),
+                              // InkWell(
+                              //     child: getNavIcon(3, false, "Library"),
+                              //     onTap: () {
+                              //       updateActiveTab(3);
+                              //     }),
                               // SizedBox(
                               //   width: 27.63.w,
                               // ),
@@ -371,6 +321,86 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget getNavIcon(int index, bool isActive, String title) {
+    return activeIndex == index ? Container(
+      width: 90.w,
+      child: Column(
+        children: [
+          Stack(
+            children: [
+              Container(
+                width: 72.w,
+                height: 40.h,
+                decoration: BoxDecoration(
+                  color: AppColor.primary,
+                  borderRadius:
+                  BorderRadius.circular(14.h),
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                      color: AppColor.primary
+                          .withOpacity(0.3),
+                      blurRadius: 20,
+                      spreadRadius: 5,
+                      offset: Offset(0, 10),
+                    ),
+                  ],
+                ),
+              ),
+              Positioned.fill(
+                child: Align(
+                  child: Container(
+                    height: 24.h,
+                    width: 24.h,
+                    child: SvgPicture.asset(
+                        "assets/images/activeNav/${index + 1}.svg",
+                        height: 24.h
+                      // semanticsLabel: 'Acme Logo'
+                    ),
+
+                  ),
+                ),
+              )
+            ],
+          ),
+          SizedBox(
+            height: 4.h,
+          ),
+          Text(
+            title,
+            style: Theme.of(context)
+                .textTheme
+                .headline5,
+          )
+        ],
+      ),
+    )
+    :Container(
+      width: 60.w,
+      child: Column(
+        children: [
+          Container(
+            height: 24.h,
+            width: 24.h,
+            child: SvgPicture.asset("assets/images/nav/${index + 1}.svg",
+                height: 24.h
+              // semanticsLabel: 'Acme Logo'
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 4.h),
+            width: 24.w,
+            height: 2.h,
+            decoration: BoxDecoration(
+                color: activeIndex == index ? AppColor.primary : Colors.black,
+                borderRadius: BorderRadius.circular(50)),
+          ),
+          Text(
+            title,
+            style: Theme.of(context).textTheme.headline5,
+          )
+        ],
+      ),
+    );
+
     return Container(
       width: 60.w,
       child: Column(

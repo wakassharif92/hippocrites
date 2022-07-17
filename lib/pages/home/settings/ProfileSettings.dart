@@ -73,36 +73,36 @@ class _ProfileSettingsState extends State<ProfileSettings> {
                   //   ),
                   // ),
                   SizedBox(height: 40.h,),
-                  Stack(
-                    children: [
-                      Container(
-                        height: 120.h,
-                        width: 120.h,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16.h),
-                          color: AppColor.themeGrey,
-                        ),
-                      ),
-                      Positioned.fill(
-                          child: Align(
-                            child: Container(
-                              child: SvgPicture.asset("assets/images/person.svg",
-                                  height: 69.h
-                                // width: 69.sp,
-                                // semanticsLabel: 'Acme Logo'
-                              ),
-                            ),
-                          )),
-                      Positioned(
-                        right: 10.w,
-                        top: 10.h,
-                        child: SvgPicture.asset("assets/images/edit.svg",
-                            height: 24.h
-                          // width: 69.sp,
-                          // semanticsLabel: 'Acme Logo'
-                        ),)
-                    ],
-                  ),
+                  // Stack(
+                  //   children: [
+                  //     Container(
+                  //       height: 120.h,
+                  //       width: 120.h,
+                  //       decoration: BoxDecoration(
+                  //         borderRadius: BorderRadius.circular(16.h),
+                  //         color: AppColor.themeGrey,
+                  //       ),
+                  //     ),
+                  //     Positioned.fill(
+                  //         child: Align(
+                  //           child: Container(
+                  //             child: SvgPicture.asset("assets/images/person.svg",
+                  //                 height: 69.h
+                  //               // width: 69.sp,
+                  //               // semanticsLabel: 'Acme Logo'
+                  //             ),
+                  //           ),
+                  //         )),
+                  //     Positioned(
+                  //       right: 10.w,
+                  //       top: 10.h,
+                  //       child: SvgPicture.asset("assets/images/edit.svg",
+                  //           height: 24.h
+                  //         // width: 69.sp,
+                  //         // semanticsLabel: 'Acme Logo'
+                  //       ),)
+                  //   ],
+                  // ),
                   SizedBox(height: 40.h,),
                   Padding(
                     padding:  EdgeInsets.symmetric(horizontal: 24.w),
