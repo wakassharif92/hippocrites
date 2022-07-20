@@ -28,7 +28,6 @@ class _ChatMessageState extends State<ChatMessage> {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width * 0.85;
     var boxConstraints = BoxConstraints(maxWidth: width, minWidth: 0.0);
-
     var maxCharLenOfSingleSlide = 0.0;
     var textMessage = [];
     if (widget.message.text != null &&

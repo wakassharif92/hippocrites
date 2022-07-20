@@ -78,25 +78,25 @@ class _ChatState extends State<Chat> {
                     return Column(
                       children: [
                         ChatMessage(e, selectedOptions),
-                        // if (state.inputType == "autocompite" && index == 0)
-                        //   Container(
-                        //     width: MediaQuery.of(context).size.width * 1,
-                        //     padding: EdgeInsets.symmetric(
-                        //         horizontal: 24.w, vertical: 20.h),
-                        //     child: ElevatedButton(
-                        //       style: ElevatedButton.styleFrom(
-                        //           primary: AppColor.darkPurple,
-                        //           shadowColor: Colors.white,
-                        //           elevation: 0),
-                        //       onPressed: () {
-                        //         showOptionSheet(state);
-                        //       },
-                        //       child: Text(
-                        //         "Choose symptoms",
-                        //         style: const TextStyle(color: Colors.white),
-                        //       ),
-                        //     ),
-                        //   )
+                        if (state.inputType == "autocompite" && index == 0)
+                          Container(
+                            width: MediaQuery.of(context).size.width * 1,
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 24.w, vertical: 20.h),
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  primary: AppColor.darkPurple,
+                                  shadowColor: Colors.white,
+                                  elevation: 0),
+                              onPressed: () {
+                                showOptionSheet(state);
+                              },
+                              child: Text(
+                                "Choose symptoms",
+                                style: const TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          )
                       ],
                     );
                   },
