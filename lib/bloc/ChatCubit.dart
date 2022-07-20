@@ -7,17 +7,18 @@ import 'package:hmd_chatbot/services/storage/Storage.dart';
 import 'package:hmd_chatbot/services/storage/StorageFactory.dart';
 
 class ChatState {
-
   ChatState(
       {required this.messages,
       this.options,
       this.inputType,
-      this.questionType});
+      this.questionType,
+      this.loading = false});
 
   List<Message> messages;
   List<String>? options;
   String? questionType;
   String? inputType;
+  bool loading = false;
 
   @override
   String toString() {
@@ -26,18 +27,17 @@ class ChatState {
 }
 
 class ChatCubit extends Cubit<ChatState> {
-
-  ChatCubit({required this.storageFactory, required this.apiFactory})
-      : super(ChatState(
+  ChatCubit({
+    required this.storageFactory,
+    required this.apiFactory,
+  }) : super(ChatState(
           messages: storageFactory.getStorage().messages,
         ));
 
   StorageFactory storageFactory;
   APIFactory apiFactory;
 
-  sendMessage(
-    String text,
-  ) async {
+  sendMessage(String text) async {
     Storage s = storageFactory.getStorage();
 
     s.saveMessage(
@@ -51,52 +51,62 @@ class ChatCubit extends Cubit<ChatState> {
         messages: storageFactory.getStorage().messages,
         options: state.options,
         questionType: state.questionType,
-        inputType: state.inputType));
+        inputType: state.inputType,
+        loading: true));
+    print("loading true huxna hai");
+    print(state.loading);
 
     var ans = await apiFactory.getHandler().sendMessage(
         token: s.token!,
         userData: s.userData!,
         message: text,
         questionType: state.questionType);
+    emit(ChatState(
+      loading: true,
+      messages: state.messages,
+      inputType: state.inputType,
+      options: state.options,
+    ));
 
-    if(ans.questionType=="age") {
-      ans = await _sendHiddenMessage(_dateFormat(s.userData!.birthdayDate), "age");
+    if (ans.questionType == "age") {
+      ans = await _sendHiddenMessage(
+          _dateFormat(s.userData!.birthdayDate), "age");
     }
 
-    if(ans.questionType=="gender") {
+    if (ans.questionType == "gender") {
       ans = await _sendHiddenMessage(s.userData!.sex, "gender");
     }
 
-
     if (ans.httpStatus == 200) {
-        
-
       for (var element in ans.messages) {
         s.saveMessage(message: Message.fromMap(s.lastMessageId + 1, element));
-
         // await saveMessage(element);
-
       }
       emit(ChatState(
           messages: storageFactory.getStorage().messages,
           options: ans.options,
           questionType: ans.questionType,
-          inputType: ans.inputType));
+          inputType: ans.inputType,
+          loading: false));
+      print("loading false hunxa ");
+      print(state.loading);
     }
   }
+
   Future<void> saveMessage(response) async {
     final dbHelper = DatabaseHelper.instance;
     var userData = StorageFactory().getStorage().userData;
-    var userId  = userData?.userID??"";
+    var userId = userData?.userID ?? "";
     Map<String, dynamic> row = {
-        DatabaseHelper.rh_user_id: userId,
-      DatabaseHelper.rh_description:response!=null?response:""
+      DatabaseHelper.rh_user_id: userId,
+      DatabaseHelper.rh_description: response != null ? response : ""
     };
 
     var resp = await dbHelper.insert(DatabaseHelper.tbl_results_history, row);
     print(resp);
   }
-   _sendHiddenMessage(String message, String? questionType)async{
+
+  _sendHiddenMessage(String message, String? questionType) async {
     var s = storageFactory.getStorage();
     var ans = await apiFactory.getHandler().sendMessage(
         token: s.token!,
@@ -106,10 +116,10 @@ class ChatCubit extends Cubit<ChatState> {
     return ans;
   }
 
-  String _dateFormat(DateTime d)=>"${d.year}-${d.month<10?"0":""}${d.month}-${d.day<10?"0":""}${d.day}";
+  String _dateFormat(DateTime d) =>
+      "${d.year}-${d.month < 10 ? "0" : ""}${d.month}-${d.day < 10 ? "0" : ""}${d.day}";
 
   initChat(String typeOfChat) async {
-
     var s = storageFactory.getStorage();
 
     var ans = await apiFactory
@@ -135,17 +145,15 @@ class ChatCubit extends Cubit<ChatState> {
     }
   }
 
-  int? findMessage(String search){
-    search=search.trim();
-    if(search.length<3) return null;
+  int? findMessage(String search) {
+    search = search.trim();
+    if (search.length < 3) return null;
     var messages = storageFactory.getStorage().messages;
-    for(var i = messages.length-1; i>=0; i--) {
-      if(messages[i].text?.contains(search) ?? false) {
-
-        return messages.length-i-1;
+    for (var i = messages.length - 1; i >= 0; i--) {
+      if (messages[i].text?.contains(search) ?? false) {
+        return messages.length - i - 1;
       }
     }
-      return null;
-
+    return null;
   }
 }

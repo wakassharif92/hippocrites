@@ -23,12 +23,12 @@ class DioAPIHandler implements APIHandler {
     Response resp;
     try {
       resp = await dio.post("auth/email/login",
-          data: {"email": email, "password":password});
+          data: {"email": email, "password": password});
       return LogInResponse(200,
           userData: UserData.fromMap(resp.data["data"]["user"]),
           token: resp.data["data"]["token"]["access_token"]);
     } on DioError catch (e) {
-      print(e.response);
+      // print(e.response);
       return LogInResponse(e.response?.statusCode,
           error: e.response?.data["error"]?["message"]);
     }
@@ -146,18 +146,19 @@ class DioAPIHandler implements APIHandler {
     Response resp;
     try {
       resp = await dio.post("auth/email/change-password",
-          data: {"currentPassword":currentPass,"newPassword":newPass,"email":email},
+          data: {
+            "currentPassword": currentPass,
+            "newPassword": newPass,
+            "email": email
+          },
           options: Options(headers: {"Authorization": "Bearer $token"}));
 
-
       return UpdatePasswordResponse(200);
-
     } on DioError catch (e) {
       return UpdatePasswordResponse(e.response?.statusCode,
           error: e.response?.data["error"]?["message"] ??
               e.response?.data["error"]?["infoMessage"]);
-  }
-
+    }
   }
 
   @override

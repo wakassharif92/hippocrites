@@ -25,7 +25,6 @@ class _IndexState extends State<Index> {
   void initState() {
     setState(() {
       showSplash();
-
     });
     super.initState();
   }
@@ -54,11 +53,11 @@ class _IndexState extends State<Index> {
   }
 
   showSplash() async {
-    splash=true;
+    splash = true;
     await Future.delayed(const Duration(seconds: 3));
     setState(() {
-      splash=false;
+      splash = false;
     });
-print(splash);
+    print(splash);
   }
 }
