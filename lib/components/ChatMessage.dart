@@ -109,6 +109,14 @@ class _ChatMessageState extends State<ChatMessage> {
         ),
       );
     } else {
+      final messages = textMessage;
+      String lamo = "";
+      if (messages.last ==
+          "Please ask another question or click 'Start Over'") {
+        lamo = messages.last;
+        messages.removeLast();
+      }
+      print("yo radi last message ${textMessage.last}");
       return textMessage.length > 1
           ? // if $$$ found show carasold
           Container(
@@ -121,7 +129,7 @@ class _ChatMessageState extends State<ChatMessage> {
                     carouselController: _sliderController,
                     options: CarouselOptions(
                         initialPage: 0,
-                        height: maxCharLenOfSingleSlide * 22.h,
+                        height: MediaQuery.of(context).size.height * .33,
                         enableInfiniteScroll: false,
                         // disableCenter: true,
                         padEnds: false,
@@ -130,13 +138,13 @@ class _ChatMessageState extends State<ChatMessage> {
                             currentSliderIndex = index;
                           });
                         }),
-                    items: textMessage.map((i) {
+                    items: messages.map((i) {
                       return Builder(
                         builder: (BuildContext context) {
                           return Container(
                             margin: EdgeInsets.only(left: 8.w),
                             padding:
-                                EdgeInsets.fromLTRB(40.w, 40.h, 40.w, 0.sp),
+                                EdgeInsets.fromLTRB(30.w, 30.h, 30.w, 20.sp),
                             constraints: boxConstraints,
                             decoration: BoxDecoration(
                                 color: AppColor.msgBotBackground,
@@ -158,7 +166,7 @@ class _ChatMessageState extends State<ChatMessage> {
                                 }
                               },
                               data: i.toString(),
-                              physics: const NeverScrollableScrollPhysics(),
+                              physics: const AlwaysScrollableScrollPhysics(),
                               padding: EdgeInsets.zero,
                               shrinkWrap: true,
                               selectable: true,
@@ -213,6 +221,58 @@ class _ChatMessageState extends State<ChatMessage> {
                         );
                       }).toList(),
                     ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Align(
+                    alignment: (widget.message.fromUser
+                        ? Alignment.topRight
+                        : Alignment.topLeft),
+                    child: Container(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  SelectableText(
+                                    lamo,
+                                    style: TextStyle(
+                                        color: widget.message.fromUser
+                                            ? AppColor.msgUserText
+                                            : AppColor.msgBotText),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        padding: EdgeInsets.fromLTRB(24.w, 16.sp, 24.sp, 12.sp),
+                        constraints: boxConstraints,
+                        decoration: BoxDecoration(
+                            color: widget.message.fromUser
+                                ? AppColor.msgUserBackground
+                                : AppColor.msgBotBackground,
+                            borderRadius: !widget.message.fromUser
+                                ? BorderRadius.only(
+                                    topRight: Radius.circular(24.sp),
+                                    topLeft: Radius.circular(24.sp),
+                                    bottomRight: Radius.circular(24.sp),
+                                  )
+                                : BorderRadius.only(
+                                    topRight: Radius.circular(24.sp),
+                                    topLeft: Radius.circular(24.sp),
+                                    bottomLeft: Radius.circular(24.sp),
+                                  )),
+                        margin: EdgeInsets.only(
+                            left: //message.fromUser ? 0.0 :
+                                24.w,
+                            bottom: 24.h,
+                            right: 24.w)),
                   ),
                 ],
               ),

@@ -205,8 +205,9 @@ class _ChatState extends State<Chat> {
         return Stack(
           children: [
             Container(
-              height: MediaQuery.of(context).size.height *
-                  .16, //yaha size chnage garne chat bubble
+              height: state.loading
+                  ? MediaQuery.of(context).size.height * .16
+                  : null, //yaha size chnage garne chat bubble
               alignment: Alignment.bottomCenter,
               color: Colors.transparent,
               child: Container(
@@ -228,7 +229,6 @@ class _ChatState extends State<Chat> {
                         height: 60.h,
                         child: TextField(
                           style: TextStyle(
-                              color: Colors.red,
                               height: 2.h,
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w400,
