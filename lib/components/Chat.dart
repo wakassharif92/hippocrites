@@ -316,7 +316,7 @@ class _ChatState extends State<Chat> {
             if (state.loading)
               const Positioned(
                 child: TypingIndicator(
-                  bubbleColor: AppColor.primary,
+                  bubbleColor: Colors.transparent,
                   flashingCircleBrightColor: Colors.white,
                   flashingCircleDarkColor: Colors.grey,
                   showIndicator: true,
