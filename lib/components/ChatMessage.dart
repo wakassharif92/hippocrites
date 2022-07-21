@@ -112,13 +112,10 @@ class _ChatMessageState extends State<ChatMessage> {
       );
     } else {
       final messages = textMessage;
-      String lamo = "";
-      if (messages.last ==
+      if (textMessage.last ==
           "Please ask another question or click 'Start Over'") {
-        lamo = messages.last;
-        messages.removeLast();
+        textMessage.removeLast();
       }
-      print("yo radi last message ${textMessage.last}");
       if (textMessage.length > 1) {
         return Container(
           padding: EdgeInsets.only(
@@ -138,7 +135,7 @@ class _ChatMessageState extends State<ChatMessage> {
                         currentSliderIndex = index;
                       });
                     }),
-                items: messages.map((i) {
+                items: textMessage.map((i) {
                   return Builder(
                     builder: (BuildContext context) {
                       return Container(
@@ -220,55 +217,6 @@ class _ChatMessageState extends State<ChatMessage> {
               ),
               const SizedBox(
                 height: 30,
-              ),
-              Align(
-                alignment: (widget.message.fromUser
-                    ? Alignment.topRight
-                    : Alignment.topLeft),
-                child: Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SelectableText(
-                                lamo,
-                                style: TextStyle(
-                                    color: widget.message.fromUser
-                                        ? AppColor.msgUserText
-                                        : AppColor.msgBotText),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    padding: EdgeInsets.fromLTRB(24.w, 16.sp, 24.sp, 12.sp),
-                    constraints: boxConstraints,
-                    decoration: BoxDecoration(
-                        color: widget.message.fromUser
-                            ? AppColor.msgUserBackground
-                            : AppColor.msgBotBackground,
-                        borderRadius: !widget.message.fromUser
-                            ? BorderRadius.only(
-                                topRight: Radius.circular(24.sp),
-                                topLeft: Radius.circular(24.sp),
-                                bottomRight: Radius.circular(24.sp),
-                              )
-                            : BorderRadius.only(
-                                topRight: Radius.circular(24.sp),
-                                topLeft: Radius.circular(24.sp),
-                                bottomLeft: Radius.circular(24.sp),
-                              )),
-                    margin: EdgeInsets.only(
-                        left: //message.fromUser ? 0.0 :
-                            24.w,
-                        bottom: 24.h,
-                        right: 24.w)),
               ),
             ],
           ),
