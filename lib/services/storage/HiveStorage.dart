@@ -55,6 +55,16 @@ class HiveStorage implements Storage {
   }
 
   @override
+  clearAAQ() {
+    Hive.box<Message>("messages_aaq").clear();
+  }
+
+  @override
+  clearMAD() {
+    Hive.box<Message>("messages_mad").clear();
+  }
+
+  @override
   List<Message> get messagesAAQ =>
       Hive.box<Message>("messages_aaq").values.toList();
 

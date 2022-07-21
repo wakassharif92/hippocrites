@@ -24,6 +24,9 @@ abstract class Storage {
 
   String get getCurrentScreen;
 
+  clearAAQ();
+  clearMAD();
+
   saveCurrentScreen({required CurrentScreen screen});
 
   logIn({required UserData userData, required String token});

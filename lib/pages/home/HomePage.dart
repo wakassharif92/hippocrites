@@ -13,6 +13,7 @@ import 'package:hmd_chatbot/models/db/databaseHelper.dart';
 import 'package:hmd_chatbot/pages/home/ProfilePage.dart';
 import 'package:hmd_chatbot/pages/home/infoPage.dart';
 import 'package:hmd_chatbot/services/api/APIFactory.dart';
+import 'package:hmd_chatbot/services/storage/Storage.dart';
 import 'package:hmd_chatbot/services/storage/StorageFactory.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -85,8 +86,21 @@ class _HomePageState extends State<HomePage> {
                               if (activeIndex == 1 || activeIndex == 2)
                                 GestureDetector(
                                   onTap: () {
-                                    BlocProvider.of<ChatCubit>(context)
-                                        .initChat(activeIndex == 1 ? MAD : AAQ);
+                                    //     .initChat(activeIndex == 1 ? MAD : AAQ);
+                                    Storage s = StorageFactory().getStorage();
+                                    if (s.getCurrentScreen == AAQ) {
+                                      s.clearAAQ();
+                                      BlocProvider.of<ChatCubit>(context)
+                                          .makeStateEmpty();
+                                      BlocProvider.of<ChatCubit>(context)
+                                          .initChat(AAQ);
+                                    } else {
+                                      s.clearMAD();
+                                      BlocProvider.of<ChatCubit>(context)
+                                          .makeStateEmpty();
+                                      BlocProvider.of<ChatCubit>(context)
+                                          .initChat(MAD);
+                                    }
                                   },
                                   child: Padding(
                                     padding: EdgeInsets.only(

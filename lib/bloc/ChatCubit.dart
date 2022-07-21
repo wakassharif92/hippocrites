@@ -40,6 +40,10 @@ class ChatCubit extends Cubit<ChatState> {
   StorageFactory storageFactory;
   APIFactory apiFactory;
 
+  makeStateEmpty() {
+    emit(ChatState(messages: []));
+  }
+
   sendMessage(String text) async {
     Storage s = storageFactory.getStorage();
 
