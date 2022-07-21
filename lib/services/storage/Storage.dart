@@ -1,28 +1,32 @@
-
 import 'package:hmd_chatbot/models/Message.dart';
 import 'package:hmd_chatbot/models/UserData.dart';
+import 'package:hmd_chatbot/models/current_screen.dart';
 
-abstract class Storage{
-
+abstract class Storage {
   Future init();
 
   bool get loggedIn;
 
   String? get token;
 
-    UserData? get userData;
+  UserData? get userData;
 
   updateUserData({required UserData userData});
 
-  List<Message> get messages;
+  List<Message> get messagesAAQ;
+  List<Message> get messagesMAD;
 
-  saveMessage({required Message message});
+  saveMessageMAD({required Message message});
+  saveMessageAAQ({required Message message});
 
-  int get lastMessageId;
+  int get lastMessageIdAAQ;
+  int get lastMessageIdMAD;
 
-  logIn({ required UserData userData, required String token});
+  String get getCurrentScreen;
+
+  saveCurrentScreen({required CurrentScreen screen});
+
+  logIn({required UserData userData, required String token});
 
   logOut();
-
-
 }

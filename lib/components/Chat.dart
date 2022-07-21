@@ -8,6 +8,8 @@ import 'package:hmd_chatbot/components/OptionsDialog.dart';
 import 'package:hmd_chatbot/components/typing_indicator.dart';
 import 'package:hmd_chatbot/generated/l10n.dart';
 import 'package:hmd_chatbot/helpers/AppColor.dart';
+import 'package:hmd_chatbot/models/current_screen.dart';
+import 'package:hmd_chatbot/services/storage/StorageFactory.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -27,9 +29,12 @@ class Chat extends StatefulWidget {
 }
 
 class _ChatState extends State<Chat> {
-  bool _isLoading = false;
   @override
   void initState() {
+    var s = StorageFactory().getStorage();
+    var k = CurrentScreen();
+    k.name = widget.typeOfChat;
+    s.saveCurrentScreen(screen: k);
     BlocProvider.of<ChatCubit>(context).initChat(widget.typeOfChat);
     super.initState();
   }

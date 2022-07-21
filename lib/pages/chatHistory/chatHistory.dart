@@ -70,10 +70,10 @@ class _ChatHistoryState extends State<ChatHistory> {
     //     "${DatabaseHelper.rh_user_id}='${userId}'");
     // // print(resl[0]);
     // print(resl);
-    StorageFactory storageFactory= StorageFactory();
+    StorageFactory storageFactory = StorageFactory();
     Storage s = storageFactory.getStorage();
     setState(() {
-      history = s.messages;
+      history = s.messagesAAQ;
     });
   }
 }

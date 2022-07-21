@@ -31,7 +31,10 @@ class ChatCubit extends Cubit<ChatState> {
     required this.storageFactory,
     required this.apiFactory,
   }) : super(ChatState(
-          messages: storageFactory.getStorage().messages,
+          messages:
+              storageFactory.getStorage().getCurrentScreen == "Ask a question"
+                  ? storageFactory.getStorage().messagesAAQ
+                  : storageFactory.getStorage().messagesMAD,
         ));
 
   StorageFactory storageFactory;
@@ -40,22 +43,39 @@ class ChatCubit extends Cubit<ChatState> {
   sendMessage(String text) async {
     Storage s = storageFactory.getStorage();
 
-    s.saveMessage(
-        message: Message(
-            id: s.lastMessageId + 1,
-            fromUser: true,
-            dateTime: DateTime.now(),
-            type: Message.NORMAL_TYPE)
-          ..text = text);
-    emit(ChatState(
-        messages: storageFactory.getStorage().messages,
-        options: state.options,
-        questionType: state.questionType,
-        inputType: state.inputType,
-        loading: true));
-    print("loading true huxna hai");
-    print(state.loading);
+    if (s.getCurrentScreen == "Ask a question") {
+      s.saveMessageAAQ(
+          message: Message(
+              id: s.lastMessageIdAAQ + 1,
+              fromUser: true,
+              dateTime: DateTime.now(),
+              type: Message.NORMAL_TYPE)
+            ..text = text);
+    } else {
+      s.saveMessageMAD(
+          message: Message(
+              id: s.lastMessageIdMAD + 1,
+              fromUser: true,
+              dateTime: DateTime.now(),
+              type: Message.NORMAL_TYPE)
+            ..text = text);
+    }
 
+    if (s.getCurrentScreen == "Ask a question") {
+      emit(ChatState(
+          messages: storageFactory.getStorage().messagesAAQ,
+          options: state.options,
+          questionType: state.questionType,
+          inputType: state.inputType,
+          loading: true));
+    } else {
+      emit(ChatState(
+          messages: storageFactory.getStorage().messagesMAD,
+          options: state.options,
+          questionType: state.questionType,
+          inputType: state.inputType,
+          loading: true));
+    }
     var ans = await apiFactory.getHandler().sendMessage(
         token: s.token!,
         userData: s.userData!,
@@ -79,17 +99,31 @@ class ChatCubit extends Cubit<ChatState> {
 
     if (ans.httpStatus == 200) {
       for (var element in ans.messages) {
-        s.saveMessage(message: Message.fromMap(s.lastMessageId + 1, element));
+        if (s.getCurrentScreen == "Ask a question") {
+          s.saveMessageAAQ(
+              message: Message.fromMap(s.lastMessageIdAAQ + 1, element));
+        } else {
+          s.saveMessageMAD(
+              message: Message.fromMap(s.lastMessageIdMAD + 1, element));
+        }
         // await saveMessage(element);
       }
-      emit(ChatState(
-          messages: storageFactory.getStorage().messages,
-          options: ans.options,
-          questionType: ans.questionType,
-          inputType: ans.inputType,
-          loading: false));
-      print("loading false hunxa ");
-      print(state.loading);
+
+      if (s.getCurrentScreen == "Ask a question") {
+        emit(ChatState(
+            messages: storageFactory.getStorage().messagesAAQ,
+            options: ans.options,
+            questionType: ans.questionType,
+            inputType: ans.inputType,
+            loading: false));
+      } else {
+        emit(ChatState(
+            messages: storageFactory.getStorage().messagesMAD,
+            options: ans.options,
+            questionType: ans.questionType,
+            inputType: ans.inputType,
+            loading: false));
+      }
     }
   }
 
@@ -126,14 +160,30 @@ class ChatCubit extends Cubit<ChatState> {
         .getHandler()
         .initChat(token: s.token!, userData: s.userData!);
     if (ans.httpStatus == 200) {
-      s.saveMessage(
-          message: Message(
-              id: s.lastMessageId + 1,
-              fromUser: true,
-              dateTime: DateTime.now(),
-              type: Message.SEPARATOR_TYPE));
+      if (s.getCurrentScreen == "Ask a question") {
+        s.saveMessageAAQ(
+            message: Message(
+                id: s.lastMessageIdAAQ + 1,
+                fromUser: true,
+                dateTime: DateTime.now(),
+                type: Message.SEPARATOR_TYPE));
+      } else {
+        s.saveMessageMAD(
+            message: Message(
+                id: s.lastMessageIdMAD + 1,
+                fromUser: true,
+                dateTime: DateTime.now(),
+                type: Message.SEPARATOR_TYPE));
+      }
+
       for (var element in ans.messages) {
-        s.saveMessage(message: Message.fromMap(s.lastMessageId + 1, element));
+        if (s.getCurrentScreen == "Ask a question") {
+          s.saveMessageAAQ(
+              message: Message.fromMap(s.lastMessageIdAAQ + 1, element));
+        } else {
+          s.saveMessageMAD(
+              message: Message.fromMap(s.lastMessageIdMAD + 1, element));
+        }
       }
       sendMessage(typeOfChat);
       //
@@ -148,7 +198,12 @@ class ChatCubit extends Cubit<ChatState> {
   int? findMessage(String search) {
     search = search.trim();
     if (search.length < 3) return null;
-    var messages = storageFactory.getStorage().messages;
+    var messages;
+    if (storageFactory.getStorage().getCurrentScreen == "Ask a question") {
+      messages = storageFactory.getStorage().messagesAAQ;
+    } else {
+      messages = storageFactory.getStorage().messagesMAD;
+    }
     for (var i = messages.length - 1; i >= 0; i--) {
       if (messages[i].text?.contains(search) ?? false) {
         return messages.length - i - 1;
