@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hmd_chatbot/bloc/ChatCubit.dart';
 import 'package:hmd_chatbot/bloc/UserDataCubit.dart';
 import 'package:hmd_chatbot/components/Chat.dart';
+import 'package:hmd_chatbot/components/chat_d.dart';
 import 'package:hmd_chatbot/helpers/AppColor.dart';
 import 'package:hmd_chatbot/helpers/UiHelpers.dart';
 import 'package:hmd_chatbot/models/db/databaseHelper.dart';
@@ -432,14 +433,12 @@ class _HomePageState extends State<HomePage> {
     var a = [
       const InfoPage(),
       // const Center(child: Text("Info comming soon")),
+      ChatD(
+        itemScrollController: itemScrollController,
+      ),
       Chat(
-          key: ValueKey("uniqueKeyMAD"),
-          itemScrollController: itemScrollController,
-          typeOfChat: MAD),
-      Chat(
-          key: ValueKey("uniqueKeyAAQ"),
-          itemScrollController: itemScrollController,
-          typeOfChat: AAQ),
+        itemScrollController: itemScrollController,
+      ),
       ChatHistory(),
       BlocProvider(
           create: (BuildContext context) => UserDataCubit(

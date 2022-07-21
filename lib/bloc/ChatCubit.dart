@@ -116,6 +116,27 @@ class ChatCubit extends Cubit<ChatState> {
             questionType: ans.questionType,
             inputType: ans.inputType,
             loading: false));
+
+        if (ans.inputType == "field") {
+          var ansn = await apiFactory.getHandler().sendMessage(
+              token: s.token!,
+              userData: s.userData!,
+              message: "Ask a question",
+              questionType: state.questionType);
+          if (ansn.httpStatus == 200) {
+            for (var element in ansn.messages) {
+              s.saveMessageAAQ(
+                  message: Message.fromMap(s.lastMessageIdAAQ + 1, element));
+              // await saveMessage(element);
+            }
+            emit(ChatState(
+                messages: storageFactory.getStorage().messagesAAQ,
+                options: ansn.options,
+                questionType: ansn.questionType,
+                inputType: ansn.inputType,
+                loading: false));
+          }
+        }
       } else {
         emit(ChatState(
             messages: storageFactory.getStorage().messagesMAD,
@@ -123,6 +144,28 @@ class ChatCubit extends Cubit<ChatState> {
             questionType: ans.questionType,
             inputType: ans.inputType,
             loading: false));
+        if (ans.inputType != "button") {
+          var ansn = await apiFactory.getHandler().sendMessage(
+              token: s.token!,
+              userData: s.userData!,
+              message: "Make a diagnosis",
+              questionType: state.questionType);
+          if (ansn.httpStatus == 200) {
+            for (var element in ansn.messages) {
+              s.saveMessageMAD(
+                  message: Message.fromMap(s.lastMessageIdMAD + 1, element));
+              // await saveMessage(element);
+            }
+            emit(ChatState(
+                messages: storageFactory.getStorage().messagesMAD,
+                options: ansn.options,
+                questionType: ansn.questionType,
+                inputType: ansn.inputType,
+                loading: false));
+          }
+        }
+
+        // initDiagLastPart();
       }
     }
   }
@@ -154,46 +197,142 @@ class ChatCubit extends Cubit<ChatState> {
       "${d.year}-${d.month < 10 ? "0" : ""}${d.month}-${d.day < 10 ? "0" : ""}${d.day}";
 
   initChat(String typeOfChat) async {
-    var s = storageFactory.getStorage();
+    if (typeOfChat == "Make a diagnosis") {
+      initDiagnosis();
+    } else {
+      initAskQuestion();
+    }
+  }
 
+  initDiagnosis() async {
+    Storage s = storageFactory.getStorage();
     var ans = await apiFactory
         .getHandler()
         .initChat(token: s.token!, userData: s.userData!);
     if (ans.httpStatus == 200) {
-      if (s.getCurrentScreen == "Ask a question") {
-        s.saveMessageAAQ(
-            message: Message(
-                id: s.lastMessageIdAAQ + 1,
-                fromUser: true,
-                dateTime: DateTime.now(),
-                type: Message.SEPARATOR_TYPE));
-      } else {
-        s.saveMessageMAD(
-            message: Message(
-                id: s.lastMessageIdMAD + 1,
-                fromUser: true,
-                dateTime: DateTime.now(),
-                type: Message.SEPARATOR_TYPE));
-      }
+      s.saveMessageMAD(
+          message: Message(
+              id: s.lastMessageIdMAD + 1,
+              fromUser: true,
+              dateTime: DateTime.now(),
+              type: Message.SEPARATOR_TYPE));
+    }
+    for (var element in ans.messages) {
+      s.saveMessageMAD(
+          message: Message.fromMap(s.lastMessageIdMAD + 1, element));
+    }
+    s.saveMessageMAD(
+        message: Message(
+            id: s.lastMessageIdMAD + 1,
+            fromUser: true,
+            dateTime: DateTime.now(),
+            type: Message.NORMAL_TYPE)
+          ..text = "Make a diagnosis");
 
-      for (var element in ans.messages) {
-        if (s.getCurrentScreen == "Ask a question") {
-          s.saveMessageAAQ(
-              message: Message.fromMap(s.lastMessageIdAAQ + 1, element));
-        } else {
-          s.saveMessageMAD(
-              message: Message.fromMap(s.lastMessageIdMAD + 1, element));
-        }
+    emit(ChatState(
+        messages: storageFactory.getStorage().messagesMAD,
+        options: state.options,
+        questionType: state.questionType,
+        inputType: state.inputType,
+        loading: true));
+
+    // yeti ho last wala part
+
+    var ansn = await apiFactory.getHandler().sendMessage(
+        token: s.token!,
+        userData: s.userData!,
+        message: "Make a diagnosis",
+        questionType: state.questionType);
+    if (ansn.httpStatus == 200) {
+      for (var element in ansn.messages) {
+        s.saveMessageMAD(
+            message: Message.fromMap(s.lastMessageIdMAD + 1, element));
+        // await saveMessage(element);
       }
-      sendMessage(typeOfChat);
-      //
-      // emit(ChatState(
-      //     messages: storageFactory.getStorage().messages,
-      //     options: ans.options,
-      //     questionType: ans.questionType,
-      //     inputType: ans.inputType));
+      emit(ChatState(
+          messages: storageFactory.getStorage().messagesMAD,
+          options: ansn.options,
+          questionType: ansn.questionType,
+          inputType: ansn.inputType,
+          loading: false));
     }
   }
+
+  initAskQuestion() async {
+    Storage s = storageFactory.getStorage();
+    var ans = await apiFactory
+        .getHandler()
+        .initChat(token: s.token!, userData: s.userData!);
+    if (ans.httpStatus == 200) {
+      s.saveMessageAAQ(
+          message: Message(
+              id: s.lastMessageIdAAQ + 1,
+              fromUser: true,
+              dateTime: DateTime.now(),
+              type: Message.SEPARATOR_TYPE));
+    }
+    for (var element in ans.messages) {
+      s.saveMessageAAQ(
+          message: Message.fromMap(s.lastMessageIdAAQ + 1, element));
+    }
+    s.saveMessageAAQ(
+        message: Message(
+            id: s.lastMessageIdAAQ + 1,
+            fromUser: true,
+            dateTime: DateTime.now(),
+            type: Message.NORMAL_TYPE)
+          ..text = "Ask a question");
+
+    emit(ChatState(
+        messages: storageFactory.getStorage().messagesAAQ,
+        options: state.options,
+        questionType: state.questionType,
+        inputType: state.inputType,
+        loading: true));
+
+    // yeti ho last wala part
+
+    var ansn = await apiFactory.getHandler().sendMessage(
+        token: s.token!,
+        userData: s.userData!,
+        message: "Ask a question",
+        questionType: state.questionType);
+    if (ansn.httpStatus == 200) {
+      for (var element in ansn.messages) {
+        s.saveMessageAAQ(
+            message: Message.fromMap(s.lastMessageIdAAQ + 1, element));
+        // await saveMessage(element);
+      }
+      emit(ChatState(
+          messages: storageFactory.getStorage().messagesAAQ,
+          options: ansn.options,
+          questionType: ansn.questionType,
+          inputType: ansn.inputType,
+          loading: false));
+    }
+  }
+
+  // initDiagLastPart() async {
+  //   Storage s = storageFactory.getStorage();
+  //   var ansn = await apiFactory.getHandler().sendMessage(
+  //       token: s.token!,
+  //       userData: s.userData!,
+  //       message: "Make a diagnosis",
+  //       questionType: state.questionType);
+  //   if (ansn.httpStatus == 200) {
+  //     for (var element in ansn.messages) {
+  //       s.saveMessageAAQ(
+  //           message: Message.fromMap(s.lastMessageIdAAQ + 1, element));
+  //       // await saveMessage(element);
+  //     }
+  //     emit(ChatState(
+  //         messages: storageFactory.getStorage().messagesAAQ,
+  //         options: ansn.options,
+  //         questionType: ansn.questionType,
+  //         inputType: ansn.inputType,
+  //         loading: false));
+  //   }
+  // }
 
   int? findMessage(String search) {
     search = search.trim();

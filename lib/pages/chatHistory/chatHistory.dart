@@ -45,7 +45,7 @@ class _ChatHistoryState extends State<ChatHistory> {
                       var e = m[m.length - index - 1];
                       return Column(
                         children: [
-                          ChatMessage(e, "selectedOptions"),
+                          ChatMessage(e, "selectedOptions", ""),
                         ],
                       );
                     },

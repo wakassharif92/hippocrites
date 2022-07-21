@@ -14,8 +14,8 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Chat extends StatefulWidget {
-  final String typeOfChat;
-  Chat({Key? key, required this.itemScrollController, required this.typeOfChat})
+  String AAQ = "Ask a question";
+  Chat({Key? key, required this.itemScrollController})
       : super(
           key: key,
         );
@@ -33,9 +33,9 @@ class _ChatState extends State<Chat> {
   void initState() {
     var s = StorageFactory().getStorage();
     var k = CurrentScreen();
-    k.name = widget.typeOfChat;
+    k.name = widget.AAQ;
     s.saveCurrentScreen(screen: k);
-    BlocProvider.of<ChatCubit>(context).initChat(widget.typeOfChat);
+    BlocProvider.of<ChatCubit>(context).initChat(widget.AAQ);
     super.initState();
   }
 
@@ -60,55 +60,64 @@ class _ChatState extends State<Chat> {
             onTap: () {
               FocusManager.instance.primaryFocus?.unfocus();
             },
-            child: Container(
-              color: Colors.transparent,
-              child: ShaderMask(
-                shaderCallback: (rect) {
-                  return const LinearGradient(
-                    begin: Alignment(0.0, 0.90),
-                    end: Alignment(0.0, 0.98),
-                    colors: [Colors.black, Colors.transparent],
-                  ).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height));
-                },
-                blendMode: BlendMode.dstIn,
-                child: ScrollablePositionedList.builder(
-                  itemScrollController: widget.itemScrollController,
-                  padding: const EdgeInsets.symmetric(vertical: 30),
-                  reverse: true,
-                  itemBuilder: (BuildContext context, int index) {
-                    var m = state.messages;
-                    var e = m[m.length - index - 1];
-                    // print(e.text);
-                    // print(e.type);
-                    return Column(
-                      children: [
-                        ChatMessage(e, selectedOptions),
-                        if (state.inputType == "autocompite" && index == 0)
-                          Container(
-                            width: MediaQuery.of(context).size.width * 1,
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 24.w, vertical: 20.h),
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  primary: AppColor.darkPurple,
-                                  shadowColor: Colors.white,
-                                  elevation: 0),
-                              onPressed: () {
-                                showOptionSheet(state);
-                              },
-                              child: Text(
-                                "Choose symptoms",
-                                style: const TextStyle(color: Colors.white),
-                              ),
-                            ),
-                          )
-                      ],
-                    );
-                  },
-                  itemCount: state.messages.length,
-                ),
-              ),
-            ),
+            child: state.messages.isEmpty
+                ? const Center(
+                    child: CircularProgressIndicator(
+                      color: AppColor.primary,
+                    ),
+                  )
+                : Container(
+                    color: Colors.transparent,
+                    child: ShaderMask(
+                      shaderCallback: (rect) {
+                        return const LinearGradient(
+                          begin: Alignment(0.0, 0.90),
+                          end: Alignment(0.0, 0.98),
+                          colors: [Colors.black, Colors.transparent],
+                        ).createShader(
+                            Rect.fromLTRB(0, 0, rect.width, rect.height));
+                      },
+                      blendMode: BlendMode.dstIn,
+                      child: ScrollablePositionedList.builder(
+                        itemScrollController: widget.itemScrollController,
+                        padding: const EdgeInsets.symmetric(vertical: 30),
+                        reverse: true,
+                        itemBuilder: (BuildContext context, int index) {
+                          var m = state.messages;
+                          var e = m[m.length - index - 1];
+                          // print(e.text);
+                          // print(e.type);
+                          return Column(
+                            children: [
+                              ChatMessage(e, selectedOptions, "question"),
+                              if (state.inputType == "autocompite" &&
+                                  index == 0)
+                                Container(
+                                  width: MediaQuery.of(context).size.width * 1,
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 24.w, vertical: 20.h),
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                        primary: AppColor.darkPurple,
+                                        shadowColor: Colors.white,
+                                        elevation: 0),
+                                    onPressed: () {
+                                      showOptionSheet(state);
+                                    },
+                                    child: Text(
+                                      "Choose symptoms",
+                                      style:
+                                          const TextStyle(color: Colors.white),
+                                    ),
+                                  ),
+                                )
+                            ],
+                          );
+                        },
+                        itemCount: state.messages.length,
+                      ),
+                    ),
+                  ),
           )),
           Container(
             width: double.maxFinite,
