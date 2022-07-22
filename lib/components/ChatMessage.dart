@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hmd_chatbot/generated/l10n.dart';
 import 'package:hmd_chatbot/helpers/AppColor.dart';
 import 'package:hmd_chatbot/models/Message.dart';
+import 'package:simple_html_css/simple_html_css.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ChatMessage extends StatefulWidget {
@@ -313,31 +314,44 @@ class _ChatMessageState extends State<ChatMessage> {
                         //         .toString(),
                         //   ),
                         // )
-
-                        Markdown(
-                          onTapLink: (text, link, _) async {
-                            if (await canLaunch(link ?? "")) {
-                              launch(link ?? "");
-                            }
-                          },
-                          data: textMessage[0].toString().replaceAll(
-                              "Please ask another question or click 'Start Over'",
-                              ""),
-                          // data: "condo",
-                          physics: const NeverScrollableScrollPhysics(),
-                          padding: EdgeInsets.zero,
-                          shrinkWrap: true,
-                          selectable: true,
-                          styleSheet: MarkdownStyleSheet(
-                            p: TextStyle(
-                                // fontSize: 16.sp,
-                                // fontWeight: FontWeight.w300,
-                                color: widget.message.fromUser
-                                    ? AppColor.msgUserText
-                                    : AppColor.msgBotText),
-                            a: TextStyle(color: AppColor.link),
+                        RichText(
+                          text: HTML.toTextSpan(
+                            context,
+                            textMessage[0].toString().replaceAll(
+                                "Please ask another question or click 'Start Over'",
+                                ""),
+                            linksCallback: (dynamic link) async {
+                              if (await canLaunch(link.toString())) {
+                                await launch(link.toString());
+                              }
+                            },
                           ),
                         )
+
+                      // Markdown(
+                      //   onTapLink: (text, link, _) async {
+                      //     if (await canLaunch(link ?? "")) {
+                      //       launch(link ?? "");
+                      //     }
+                      //   },
+                      //   data: textMessage[0].toString().replaceAll(
+                      //       "Please ask another question or click 'Start Over'",
+                      //       ""),
+                      //   // data: "condo",
+                      //   physics: const NeverScrollableScrollPhysics(),
+                      //   padding: EdgeInsets.zero,
+                      //   shrinkWrap: true,
+                      //   selectable: true,
+                      //   styleSheet: MarkdownStyleSheet(
+                      //     p: TextStyle(
+                      //         // fontSize: 16.sp,
+                      //         // fontWeight: FontWeight.w300,
+                      //         color: widget.message.fromUser
+                      //             ? AppColor.msgUserText
+                      //             : AppColor.msgBotText),
+                      //     a: TextStyle(color: AppColor.link),
+                      //   ),
+                      // )
                       else // message of user
                         Text(
                           textMessage[0],
